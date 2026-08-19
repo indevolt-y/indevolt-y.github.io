@@ -58,7 +58,7 @@ http://{设备 IP}:8080/rpc/{API 名称}
 POST http://{设备 IP}:8080/rpc/{API 名称}?config={JSON 配置}
 ```
 
-为了便于阅读，文档会直接展示 JSON。实际使用 HTTP 客户端时，应让客户端对 `config` 查询参数进行 URL 编码；cURL 示例使用 `-g` 保留文档中的 JSON 写法。
+为了便于阅读，文档会直接展示 JSON。实际使用 HTTP 客户端时，应让客户端对 `config` 查询参数进行 URL 编码；cURL 示例使用 `-g` 保留文档中的 JSON 写法，并通过 `--noproxy` 防止局域网设备请求进入系统代理。
 
 ## 第一步：读取一个点位
 
@@ -72,7 +72,7 @@ POST http://{设备 IP}:8080/rpc/{API 名称}?config={JSON 配置}
 ```bash
 DEVICE_IP="192.168.1.75"
 
-curl -g -X POST \
+curl --noproxy "${DEVICE_IP}" -g -X POST \
   -H "Content-Type: application/json" \
   "http://${DEVICE_IP}:8080/rpc/Indevolt.GetData?config={\"t\":[6002]}"
 ```
@@ -136,7 +136,7 @@ $Response | ConvertTo-Json -Compress
 ```bash
 DEVICE_IP="192.168.1.75"
 
-curl -g -X POST \
+curl --noproxy "${DEVICE_IP}" -g -X POST \
   -H "Content-Type: application/json" \
   "http://${DEVICE_IP}:8080/rpc/Indevolt.GetData?config={\"t\":[0,6000,6001,6002,7171]}"
 ```
@@ -211,7 +211,7 @@ SolidFlex 2000 / PowerFlex 2000 使用写入点位 `7265` 控制前面板灯带�
 ```bash
 DEVICE_IP="192.168.1.75"
 
-curl -g -X POST \
+curl --noproxy "${DEVICE_IP}" -g -X POST \
   -H "Content-Type: application/json" \
   "http://${DEVICE_IP}:8080/rpc/Indevolt.SetData?config={\"f\":16,\"t\":7265,\"v\":[1]}"
 ```
@@ -254,7 +254,7 @@ $Response | ConvertTo-Json -Compress
 DEVICE_IP="192.168.1.75"
 
 sleep 5
-curl -g -X POST \
+curl --noproxy "${DEVICE_IP}" -g -X POST \
   -H "Content-Type: application/json" \
   "http://${DEVICE_IP}:8080/rpc/Indevolt.GetData?config={\"t\":[7171]}"
 ```
@@ -355,9 +355,24 @@ sequenceDiagram
     App-->>User: 显示最终确认状态
 ```
 
-## 可选：在 Flet Studio 中查看完整示例
+## 可选：下载或在线查看 Flet 完整示例
 
-到这里，OpenData HTTP API 的核心用法已经讲完。下面的 Flet Studio 项目把同一调用流程实现为设备面板，项目页同时提供运行界面和完整源码。它只是可选示例，你不需要通过它学习 Python，也可以使用自己的技术栈实现相同功能。
+到这里，OpenData HTTP API 的核心用法已经讲完。下面的 Flet 客户端把同一调用流程实现为设备面板。它只是可选示例，你不需要通过它学习 Python，也可以使用自己的技术栈实现相同功能。
+
+### 下载 Python 文件
+
+<a
+  className="button button--primary"
+  href="/downloads/indevolt-opendata-panel.py"
+  download="main.py">
+  下载完整 Python 示例
+</a>
+
+直接下载地址：[`https://indevolt-y.github.io/downloads/indevolt-opendata-panel.py`](https://indevolt-y.github.io/downloads/indevolt-opendata-panel.py)
+
+下载文件已经通过 `Session.trust_env = False` 禁用环境代理。需要更新 Flet Studio 中的代码时，请打开项目里的 `main.py`，选择全部内容，再用下载文件的完整内容全文替换。
+
+### Flet Studio 在线示例
 
 <iframe
   src="https://studio.flet.dev/apps/6puPy0aXh5"
@@ -372,11 +387,11 @@ sequenceDiagram
   }}
 />
 
-如果嵌入区域未正常显示或需要更大的编辑空间，请[在 Flet Studio 中打开完整示例](https://studio.flet.dev/apps/6puPy0aXh5)。
+如果嵌入区域未正常显示或需要更大的编辑空间，请[在 Flet Studio 中打开在线示例](https://studio.flet.dev/apps/6puPy0aXh5)。
 
 :::note 浏览器运行限制
 
-Flet Studio 中的代码在浏览器内运行。使用项目页预览界面或查看源码无需本地安装；若要连接局域网设备，浏览器可能要求授予局域网访问权限，设备端也需要允许相应的浏览器请求。需要稳定连接设备或构建桌面应用时，请从 Flet Studio 下载项目后在本地运行。
+Flet Studio 中的代码在浏览器内运行。使用项目页预览界面无需本地安装；若要连接局域网设备，浏览器可能要求授予局域网访问权限，设备端也需要允许相应的浏览器请求。需要稳定连接设备或构建桌面应用时，请下载上面的 Python 文件后在本地运行。
 
 :::
 
@@ -407,6 +422,7 @@ Flet Studio 中的代码在浏览器内运行。使用项目页预览界面或�
 |现象|优先检查|
 | --- | --- |
 |无法连接|设备 IP 是否正确；操作终端与设备是否在同一局域网；OpenData HTTP 是否启用；`8080` 端口是否可达|
+|cURL 没有显示响应|局域网请求是否被系统代理接管；确认命令包含 `--noproxy "${DEVICE_IP}"`，并使用 `-i` 查看 HTTP 状态|
 |返回 `400`|`config` 是否为有效 JSON；`t` 是否为数组；`f/t/v` 是否使用正确类型|
 |返回 `404`|路径是否为 `/rpc/Indevolt.GetData` 或 `/rpc/Indevolt.SetData`|
 |响应缺少点位|当前型号是否支持该点位；请求中的 `t` 是否包含该点位|
@@ -431,7 +447,7 @@ Flet Studio 中的代码在浏览器内运行。使用项目页预览界面或�
 
 ## 按平台构建可选示例
 
-如需把 Flet Studio 完整示例构建为本地应用，请先从项目页下载源码并解压，再在项目目录中按目标平台构建。开始前请查看 [Flet 官方构建说明](https://flet.dev/docs/publish/) 和 [`flet build` 命令参考](https://flet.dev/docs/cli/flet-build/)。
+如需把示例构建为本地应用，请把下载的 Python 文件保存为项目根目录下的 `main.py`，安装 `flet==0.86.5` 与 `requests==2.34.2`，再在项目目录中按目标平台构建。开始前请查看 [Flet 官方构建说明](https://flet.dev/docs/publish/) 和 [`flet build` 命令参考](https://flet.dev/docs/cli/flet-build/)。
 
 |目标平台|执行构建的环境|命令|
 | --- | --- | --- |
