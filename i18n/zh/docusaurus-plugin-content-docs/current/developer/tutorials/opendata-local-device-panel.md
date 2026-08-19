@@ -13,11 +13,7 @@ import TabItem from '@theme/TabItem';
 
 本文以读取设备状态和控制前面板灯带为例，展示 INDEVOLT OpenData HTTP API 的完整调用流程。
 
-## 完整示例
-
-示例可以直接在线查看，也可以下载 Python 文件在本地运行。
-
-### 在线示例
+## Python 示例
 
 <iframe
   src="https://studio.flet.dev/apps/6puPy0aXh5"
@@ -36,11 +32,63 @@ import TabItem from '@theme/TabItem';
 
 在线示例在浏览器内运行，无需本地安装。连接局域网设备时，浏览器可能要求授予局域网访问权限，设备也需要允许浏览器请求。
 
-[打开在线示例](https://studio.flet.dev/apps/6puPy0aXh5) · <a href="/downloads/indevolt-opendata-panel.py" download="main.py">下载 Python 示例</a>
+[打开在线示例](https://studio.flet.dev/apps/6puPy0aXh5) · <a href="/downloads/indevolt-opendata-panel.py" download="main.py">下载 Python 源文件</a>
 
 :::
 
-## 开始前准备
+## OpenData 调用规则
+
+OpenData HTTP API 的基础地址是：
+
+```text
+http://{设备 IP}:8080/rpc/{API 名称}
+```
+
+本期使用两个 API：
+
+|API|`config`|成功响应|
+| --- | --- | --- |
+|[`Indevolt.GetData`](../http/api-reference.md#indevoltgetdata)|`{"t":[6002]}`|返回“点位 → 当前值”的 JSON 对象|
+|[`Indevolt.SetData`](../http/api-reference.md#indevoltsetdata)|`{"f":16,"t":7265,"v":[1]}`|返回 `{"result":true}`|
+
+两个 API 都使用 `POST`，操作参数放在 URL 的 `config` 查询参数中：
+
+```text
+POST http://{设备 IP}:8080/rpc/{API 名称}?config={JSON 配置}
+```
+
+调用时还需要注意：
+
+- 建议请求间隔不少于 5 秒，设备最小支持间隔为 1 秒。
+- `GetData` 可以在一次请求中读取多个 cJSON 点位。
+- `SetData` 返回 `result: true` 表示写入请求已执行；设备面板会在写入后读取状态点位，确认最终状态。
+- 不同产品支持的 cJSON 点位可能不同，完整定义见 [API 参考](../http/api-reference.md)。
+
+## 设备面板调用流程
+
+设备面板包含“刷新数据”和“控制灯带”两条调用路径：
+
+```mermaid
+sequenceDiagram
+    actor User as 用户
+    participant App as 设备面板
+    participant Device as INDEVOLT 设备 :8080
+
+    App->>Device: GetData {t:[0,6000,6001,6002,7171]}
+    Device-->>App: 点位和值
+    App-->>User: 显示设备状态
+    User->>App: 开启或关闭灯带
+    App->>Device: SetData {f:16,t:7265,v:[0/1]}
+    Device-->>App: {result:true}
+    Note over App,Device: 等待请求间隔
+    App->>Device: GetData {t:[7171]}
+    Device-->>App: {7171:0/1}
+    App-->>User: 显示灯带状态
+```
+
+## 使用 cURL 或 PowerShell 逐步调用
+
+### 开始前准备
 
 |项目|要求|
 | --- | --- |
@@ -49,28 +97,7 @@ import TabItem from '@theme/TabItem';
 |设备信息|已经获得设备 IPv4 地址，例如 `192.168.1.75`|
 |调试工具|Bash/Zsh 中的 cURL，或 Windows PowerShell|
 
-## 理解 OpenData HTTP 请求
-
-OpenData HTTP API 的基础地址是：
-
-```text
-http://{设备 IP}:8080/rpc/{API 名称}
-```
-
-本教程使用两个 API：
-
-|API|用途|
-| --- | --- |
-|`Indevolt.GetData`|读取一个或多个 cJSON 点位的当前值|
-|`Indevolt.SetData`|向一个可写 cJSON 点位写入值|
-
-两个 API 都使用 `POST`。具体操作放在 URL 的 `config` 查询参数中：
-
-```text
-POST http://{设备 IP}:8080/rpc/{API 名称}?config={JSON 配置}
-```
-
-## 第一步：读取一个点位
+### 第一步：读取一个点位
 
 先读取电池 SOC 点位 `6002`，确认设备地址、网络和 OpenData HTTP 服务均可用。
 
@@ -124,9 +151,9 @@ $Response | ConvertTo-Json -Compress
 }
 ```
 
-响应是一个 JSON 对象：Key 是字符串形式的 cJSON 点位，Value 是设备当前值。这里表示电池 SOC 为 `76%`。
+响应是一个 JSON 对象：键是字符串形式的 cJSON 点位，值是设备当前值。这里表示电池 SOC 为 `76%`。
 
-## 第二步：一次读取面板数据
+### 第二步：一次读取面板数据
 
 `GetData` 支持在 `t` 数组中放入多个点位。设备面板需要读取：
 
@@ -188,9 +215,9 @@ $Response | ConvertTo-Json -Compress
 - `6002` 添加单位 `%`，并校验是否位于合理范围。
 - `7171` 只有返回 `0` 或 `1` 时才更新灯带开关。
 
-## 第三步：写入灯带控制点位
+### 第三步：写入灯带控制点位
 
-SolidFlex 2000 / PowerFlex 2000 使用写入点位 `7265` 控制前面板灯带：
+SolidFlex 和 PowerFlex 系列使用写入点位 `7265` 控制前面板灯带：
 
 |写入值|含义|
 | ---: | --- |
@@ -253,7 +280,7 @@ $Response | ConvertTo-Json -Compress
 
 `result: true` 表示写入请求已成功执行。应用还应读取状态点位，确认设备最终状态。
 
-## 第四步：写入后读取状态
+### 第四步：写入后读取状态
 
 灯带的写入点位是 `7265`，状态读取点位是 `7171`。写入后按照建议请求间隔等待，再读取 `7171`：
 
@@ -296,72 +323,6 @@ $Response | ConvertTo-Json -Compress
 ```
 
 关闭灯带时，把 `SetData` 中的 `v` 改为 `[0]`，随后再次读取 `7171`。只有读回值与目标值一致时，界面才显示操作成功。
-
-## OpenData 调用规则
-
-设备面板采用以下调用规则：
-
-|类别|规则|本教程的处理方式|
-| --- | --- | --- |
-|接口建议|建议请求间隔 ≥ 5 秒|所有读取和写入共用 5 秒间隔|
-|接口限制|最小支持间隔为 1 秒|不以 1 秒高频轮询设备|
-|接口响应|成功读取返回“点位 → 当前值”的 JSON 对象|逐项检查点位是否存在、类型是否有效|
-|接口响应|成功写入返回 `{"result":true}`|写入后再读取状态点位确认|
-|客户端策略|局域网请求不应意外进入外部代理|OpenData 客户端不继承系统代理设置|
-|客户端策略|设备无响应不能无限等待|示例客户端设置 10 秒超时|
-|客户端策略|自动刷新、手动刷新和控制操作可能同时发生|示例客户端串行执行所有设备请求|
-|客户端策略|设备地址不应被重定向替换|示例客户端不跟随 HTTP 重定向|
-
-常见 HTTP 错误及完整说明见 [OpenData HTTP 错误码](../http/overview.md#errors)：
-
-- `400`：`config` JSON、字段或点位格式错误。
-- `404`：API 名称或请求路径错误。
-- `405`：请求方法错误，或对不支持的资源执行操作。
-- `408`：设备等待请求超时。
-- `500`–`504`：设备当前无法正常完成请求。
-
-## 设备面板调用流程
-
-```text
-设置 BASE_URL = http://{设备 IP}:8080/rpc
-
-读取面板：
-  POST /Indevolt.GetData
-  config = {"t":[0,6000,6001,6002,7171]}
-  校验 HTTP 200
-  解析 JSON 对象
-  按点位定义更新界面
-
-控制灯带：
-  校验用户目标值只能是 0 或 1
-  POST /Indevolt.SetData
-  config = {"f":16,"t":7265,"v":[目标值]}
-  确认 result 为 true
-  等待请求间隔
-  POST /Indevolt.GetData
-  config = {"t":[7171]}
-  仅在读回值等于目标值时显示成功
-```
-
-完整交互顺序如下：
-
-```mermaid
-sequenceDiagram
-    actor User as 用户
-    participant App as 客户端
-    participant Device as INDEVOLT 设备 :8080
-
-    App->>Device: POST GetData {t:[0,6000,6001,6002,7171]}
-    Device-->>App: 点位和值的 JSON 对象
-    App-->>User: 显示设备状态
-    User->>App: 开启或关闭灯带
-    App->>Device: POST SetData {f:16,t:7265,v:[0/1]}
-    Device-->>App: {result:true}
-    Note over App,Device: 按请求间隔等待
-    App->>Device: POST GetData {t:[7171]}
-    Device-->>App: {7171:0/1}
-    App-->>User: 显示最终确认状态
-```
 
 ## 故障检查
 
