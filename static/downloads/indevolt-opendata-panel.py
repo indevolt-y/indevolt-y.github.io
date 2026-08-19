@@ -22,9 +22,9 @@ LIGHT_STATE_POINT = "7171"
 LIGHT_WRITE_POINT = "7265"
 
 STATE_NAMES = {
-    1000: "静止",
-    1001: "充电",
-    1002: "放电",
+    1000: "Idle",
+    1001: "Charging",
+    1002: "Discharging",
 }
 
 
@@ -57,15 +57,15 @@ class OpenDataClient:
                 allow_redirects=False,
             ) as response:
                 if response.status_code != 200:
-                    raise OpenDataError(f"设备返回 HTTP {response.status_code}")
+                    raise OpenDataError(f"Device returned HTTP {response.status_code}")
                 payload = response.json()
         except requests.RequestException as error:
-            raise OpenDataError(f"OpenData 请求失败：{error}") from error
+            raise OpenDataError(f"OpenData request failed: {error}") from error
         except ValueError as error:
-            raise OpenDataError("设备返回的内容不是有效 JSON") from error
+            raise OpenDataError("Device response is not valid JSON") from error
 
         if not isinstance(payload, dict):
-            raise OpenDataError("设备返回的 JSON 不是对象")
+            raise OpenDataError("Device response is not a JSON object")
         return payload
 
     def get_data(self, points: Sequence[str]) -> dict[str, Any]:
@@ -133,38 +133,40 @@ async def main(page: ft.Page) -> None:
     stop = asyncio.Event()
     confirmed_light: bool | None = None
 
-    host_input = ft.TextField(label="设备 IPv4", width=240)
-    connect_button = ft.Button("连接")
-    refresh_button = ft.Button("刷新", disabled=True)
-    serial_text = ft.Text("序列号：—")
-    soc_text = ft.Text("SOC：—")
-    state_text = ft.Text("状态：—")
-    power_text = ft.Text("电池功率：—")
-    light_switch = ft.Switch(label="前面板灯带", disabled=True)
-    updated_text = ft.Text("更新时间：—")
-    status_text = ft.Text("未连接")
+    host_input = ft.TextField(label="Device IPv4 address", width=240)
+    connect_button = ft.Button("Connect")
+    refresh_button = ft.Button("Refresh", disabled=True)
+    serial_text = ft.Text("Serial number: —")
+    soc_text = ft.Text("SOC: —")
+    state_text = ft.Text("State: —")
+    power_text = ft.Text("Battery power: —")
+    light_switch = ft.Switch(label="Front panel light", disabled=True)
+    updated_text = ft.Text("Last updated: —")
+    status_text = ft.Text("Not connected")
 
     def show(data: dict[str, Any]) -> None:
         nonlocal confirmed_light
 
         serial = str(data.get("0", "")).strip()
         if not serial:
-            raise OpenDataError("响应缺少设备序列号")
+            raise OpenDataError("Response does not include the serial number")
 
         power = integer_value(data, "6000")
         state = integer_value(data, "6001")
         soc = integer_value(data, "6002", 0, 100)
         light = integer_value(data, LIGHT_STATE_POINT, 0, 1)
 
-        serial_text.value = f"序列号：{serial}"
-        power_text.value = f"电池功率：{'—' if power is None else f'{power} W'}"
+        serial_text.value = f"Serial number: {serial}"
+        power_text.value = f"Battery power: {'—' if power is None else f'{power} W'}"
         state_text.value = (
-            f"状态：{STATE_NAMES.get(state, f'未知（{state}）')}"
+            f"State: {STATE_NAMES.get(state, f'Unknown ({state})')}"
             if state is not None
-            else "状态：—"
+            else "State: —"
         )
-        soc_text.value = f"SOC：{'—' if soc is None else f'{soc}%'}"
-        updated_text.value = datetime.now().astimezone().strftime("更新时间：%H:%M:%S")
+        soc_text.value = f"SOC: {'—' if soc is None else f'{soc}%'}"
+        updated_text.value = (
+            datetime.now().astimezone().strftime("Last updated: %H:%M:%S")
+        )
 
         confirmed_light = None if light is None else bool(light)
         light_switch.value = confirmed_light or False
@@ -182,10 +184,10 @@ async def main(page: ft.Page) -> None:
             data = await gate.run(lambda: client.get_data(READ_POINTS))
             show(data)
         except OpenDataError as error:
-            status_text.value = f"读取失败：{error}"
+            status_text.value = f"Read failed: {error}"
             success = False
         else:
-            status_text.value = "已连接"
+            status_text.value = "Connected"
             success = True
 
         refresh_button.disabled = False
@@ -206,7 +208,7 @@ async def main(page: ft.Page) -> None:
         try:
             host = str(IPv4Address(str(host_input.value or "").strip()))
         except AddressValueError:
-            status_text.value = "请输入有效的设备 IPv4"
+            status_text.value = "Enter a valid device IPv4 address"
             page.update()
             return
 
@@ -231,7 +233,7 @@ async def main(page: ft.Page) -> None:
 
         target = int(bool(event.control.value))
         light_switch.disabled = True
-        status_text.value = "正在设置灯带"
+        status_text.value = "Setting light"
         page.update()
 
         try:
@@ -239,7 +241,7 @@ async def main(page: ft.Page) -> None:
                 lambda: client.set_data(LIGHT_WRITE_POINT, target)
             )
             if not accepted:
-                raise OpenDataError("设备未接受写入")
+                raise OpenDataError("Device rejected the write")
 
             data = await gate.run(lambda: client.get_data((LIGHT_STATE_POINT,)))
             confirmed = integer_value(data, LIGHT_STATE_POINT, 0, 1)
@@ -249,10 +251,10 @@ async def main(page: ft.Page) -> None:
 
         if success:
             confirmed_light = bool(target)
-            status_text.value = "灯带已开启" if target else "灯带已关闭"
+            status_text.value = "Light turned on" if target else "Light turned off"
         else:
             light_switch.value = confirmed_light or False
-            status_text.value = "灯带结果未确认"
+            status_text.value = "Light state not confirmed"
 
         light_switch.disabled = confirmed_light is None
         page.update()

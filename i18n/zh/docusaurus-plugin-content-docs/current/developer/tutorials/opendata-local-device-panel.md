@@ -1,7 +1,7 @@
 ---
 title: 使用 OpenData HTTP API 构建设备面板
 id: opendata-local-device-panel
-description: 通过读取设备数据和控制前面板灯带，学习 OpenData HTTP API 的请求格式、点位与调用规则
+description: 通过读取设备数据和控制前面板灯带，说明 OpenData HTTP API 的请求格式、点位与调用规则
 sidebar_label: OpenData HTTP API 实战
 slug: /developer/guides/opendata-local-device-panel
 ---
@@ -11,18 +11,32 @@ import TabItem from '@theme/TabItem';
 
 # 使用 OpenData HTTP API 构建设备面板
 
-本文通过“读取设备状态并控制前面板灯带”这个完整场景，说明如何调用 INDEVOLT OpenData HTTP API。
+本文以读取设备状态和控制前面板灯带为例，展示 INDEVOLT OpenData HTTP API 的完整调用流程。
 
-教程的重点是 HTTP 请求、`config` 参数、cJSON 点位、响应处理和调用约束。文末提供的 Flet Studio 完整示例演示同一调用流程，并可直接查看项目源码；掌握前面的 API 后，你可以使用任意编程语言和界面框架实现相同功能。
+## 完整示例
 
-:::info 完成本教程后，你将能够
+示例可以直接在线查看，也可以下载 Python 文件在本地运行。
 
-- 通过设备 IP 组成 OpenData HTTP API 地址。
-- 使用 `Indevolt.GetData` 一次读取一个或多个 cJSON 点位。
-- 识别设备序列号、功率、充放电状态、SOC 和灯带状态。
-- 使用 `Indevolt.SetData` 开启或关闭前面板灯带。
-- 在写入后读取状态点位，确认设备最终状态。
-- 正确处理请求间隔、HTTP 错误和异常响应。
+### 在线示例
+
+<iframe
+  src="https://studio.flet.dev/apps/6puPy0aXh5"
+  title="INDEVOLT OpenData HTTP API 在线示例"
+  loading="lazy"
+  allow="local-network-access; local-network; loopback-network"
+  style={{
+    width: '100%',
+    height: '760px',
+    border: '1px solid var(--ifm-color-emphasis-300)',
+    borderRadius: '8px',
+  }}
+/>
+
+:::note 浏览器运行限制
+
+在线示例在浏览器内运行，无需本地安装。连接局域网设备时，浏览器可能要求授予局域网访问权限，设备也需要允许浏览器请求。
+
+[打开在线示例](https://studio.flet.dev/apps/6puPy0aXh5) · <a href="/downloads/indevolt-opendata-panel.py" download="main.py">下载 Python 示例</a>
 
 :::
 
@@ -30,12 +44,10 @@ import TabItem from '@theme/TabItem';
 
 |项目|要求|
 | --- | --- |
-|设备|SolidFlex 2000 或 PowerFlex 2000，已启用 OpenData HTTP|
+|设备|所有 SolidFlex 和 PowerFlex 系列产品；已[开启 OpenData HTTP](../http/overview.md#enable-api)|
 |网络|操作终端与设备位于同一可信局域网|
 |设备信息|已经获得设备 IPv4 地址，例如 `192.168.1.75`|
 |调试工具|Bash/Zsh 中的 cURL，或 Windows PowerShell|
-
-OpenData HTTP 服务监听设备的 `8080` 端口。请勿把该端口暴露到公网。
 
 ## 理解 OpenData HTTP 请求
 
@@ -57,8 +69,6 @@ http://{设备 IP}:8080/rpc/{API 名称}
 ```text
 POST http://{设备 IP}:8080/rpc/{API 名称}?config={JSON 配置}
 ```
-
-为了便于阅读，文档会直接展示 JSON。实际使用 HTTP 客户端时，应让客户端对 `config` 查询参数进行 URL 编码；cURL 示例使用 `-g` 保留文档中的 JSON 写法，并通过 `--noproxy` 防止局域网设备请求进入系统代理。
 
 ## 第一步：读取一个点位
 
@@ -170,7 +180,7 @@ $Response | ConvertTo-Json -Compress
 }
 ```
 
-把响应转换成界面内容时，应遵守点位定义：
+界面使用以下点位映射：
 
 - `0` 直接作为设备序列号显示。
 - `6000` 添加单位 `W`，不要丢失正负号。
@@ -289,7 +299,7 @@ $Response | ConvertTo-Json -Compress
 
 ## OpenData 调用规则
 
-需要区分 OpenData 接口约束与客户端实现策略：
+设备面板采用以下调用规则：
 
 |类别|规则|本教程的处理方式|
 | --- | --- | --- |
@@ -302,7 +312,7 @@ $Response | ConvertTo-Json -Compress
 |客户端策略|自动刷新、手动刷新和控制操作可能同时发生|示例客户端串行执行所有设备请求|
 |客户端策略|设备地址不应被重定向替换|示例客户端不跟随 HTTP 重定向|
 
-常见 HTTP 错误及完整说明见 [OpenData HTTP 错误码](../http/overview.md#errors)。客户端至少应区分以下情况：
+常见 HTTP 错误及完整说明见 [OpenData HTTP 错误码](../http/overview.md#errors)：
 
 - `400`：`config` JSON、字段或点位格式错误。
 - `404`：API 名称或请求路径错误。
@@ -310,9 +320,7 @@ $Response | ConvertTo-Json -Compress
 - `408`：设备等待请求超时。
 - `500`–`504`：设备当前无法正常完成请求。
 
-## 与编程语言无关的实现流程
-
-任何技术栈都可以按照相同流程实现设备面板：
+## 设备面板调用流程
 
 ```text
 设置 BASE_URL = http://{设备 IP}:8080/rpc
@@ -355,74 +363,11 @@ sequenceDiagram
     App-->>User: 显示最终确认状态
 ```
 
-## 可选：下载或在线查看 Flet 完整示例
-
-到这里，OpenData HTTP API 的核心用法已经讲完。下面的 Flet 客户端把同一调用流程实现为设备面板。它只是可选示例，你不需要通过它学习 Python，也可以使用自己的技术栈实现相同功能。
-
-### 下载 Python 文件
-
-<a
-  className="button button--primary"
-  href="/downloads/indevolt-opendata-panel.py"
-  download="main.py">
-  下载完整 Python 示例
-</a>
-
-直接下载地址：[`https://indevolt-y.github.io/downloads/indevolt-opendata-panel.py`](https://indevolt-y.github.io/downloads/indevolt-opendata-panel.py)
-
-下载文件已经通过 `Session.trust_env = False` 禁用环境代理。需要更新 Flet Studio 中的代码时，请打开项目里的 `main.py`，选择全部内容，再用下载文件的完整内容全文替换。
-
-### Flet Studio 在线示例
-
-<iframe
-  src="https://studio.flet.dev/apps/6puPy0aXh5"
-  title="INDEVOLT OpenData HTTP API Flet 完整示例"
-  loading="lazy"
-  allow="local-network-access; local-network; loopback-network"
-  style={{
-    width: '100%',
-    height: '760px',
-    border: '1px solid var(--ifm-color-emphasis-300)',
-    borderRadius: '8px',
-  }}
-/>
-
-如果嵌入区域未正常显示或需要更大的编辑空间，请[在 Flet Studio 中打开在线示例](https://studio.flet.dev/apps/6puPy0aXh5)。
-
-:::note 浏览器运行限制
-
-Flet Studio 中的代码在浏览器内运行。使用项目页预览界面无需本地安装；若要连接局域网设备，浏览器可能要求授予局域网访问权限，设备端也需要允许相应的浏览器请求。需要稳定连接设备或构建桌面应用时，请下载上面的 Python 文件后在本地运行。
-
-:::
-
-这个示例中的 OpenData 对应关系是：
-
-|示例行为|OpenData 调用|
-| --- | --- |
-|连接或刷新|`GetData` 读取 `0/6000/6001/6002/7171`|
-|打开灯带|`SetData` 写入 `7265=1`，再读取 `7171`|
-|关闭灯带|`SetData` 写入 `7265=0`，再读取 `7171`|
-|自动刷新与手动操作|共用串行请求和 5 秒间隔|
-
-## 验收 OpenData 调用
-
-|场景|通过条件|
-| --- | --- |
-|读取单点|`GetData` 返回包含 `6002` 的 JSON 对象|
-|读取多点|一次响应同时包含本例需要的五个点位|
-|解析枚举|`6001` 的 `1000/1001/1002` 显示为对应状态|
-|保留单位|`6000` 保留正负号并显示 `W`，`6002` 显示 `%`|
-|开启灯带|写入 `7265=1` 返回 `result:true`，随后读到 `7171=1`|
-|关闭灯带|写入 `7265=0` 返回 `result:true`，随后读到 `7171=0`|
-|请求频率|所有相邻设备请求按建议值至少间隔 5 秒|
-|异常响应|非 HTTP 200、无效 JSON 或缺少点位时不更新为成功状态|
-
 ## 故障检查
 
 |现象|优先检查|
 | --- | --- |
 |无法连接|设备 IP 是否正确；操作终端与设备是否在同一局域网；OpenData HTTP 是否启用；`8080` 端口是否可达|
-|cURL 没有显示响应|局域网请求是否被系统代理接管；确认命令包含 `--noproxy "${DEVICE_IP}"`，并使用 `-i` 查看 HTTP 状态|
 |返回 `400`|`config` 是否为有效 JSON；`t` 是否为数组；`f/t/v` 是否使用正确类型|
 |返回 `404`|路径是否为 `/rpc/Indevolt.GetData` 或 `/rpc/Indevolt.SetData`|
 |响应缺少点位|当前型号是否支持该点位；请求中的 `t` 是否包含该点位|
@@ -430,29 +375,8 @@ Flet Studio 中的代码在浏览器内运行。使用项目页预览界面无�
 |写入返回失败|目标点位是否可写；写入值是否在点位允许范围内|
 |写入成功但读回不一致|等待请求间隔后重新读取状态点位，不要仅依据写入响应更新界面|
 
-## 安全与数据处理
-
-- 只在可信局域网中访问设备，不把 `8080` 端口暴露到公网。
-- 写入前校验点位和值，只允许用户明确触发控制操作。
-- 为 HTTP 调用设置有限超时，不跟随离开设备地址的重定向。
-- 设备 IP、序列号和响应正文进入日志、截图或问题报告前先脱敏。
-- 不要用高频轮询绕过 OpenData 的请求间隔建议。
-
 ## 相关资料
 
 - [INDEVOLT OpenData 介绍](../overview/introduction.md)
 - [OpenData HTTP 请求格式、频率和错误码](../http/overview.md)
 - [`Indevolt.GetData` 与 `Indevolt.SetData` API 参考](../http/api-reference.md)
-- [Flet 异步应用](https://flet.dev/docs/cookbook/async-apps/)
-
-## 按平台构建可选示例
-
-如需把示例构建为本地应用，请把下载的 Python 文件保存为项目根目录下的 `main.py`，安装 `flet==0.86.5` 与 `requests==2.34.2`，再在项目目录中按目标平台构建。开始前请查看 [Flet 官方构建说明](https://flet.dev/docs/publish/) 和 [`flet build` 命令参考](https://flet.dev/docs/cli/flet-build/)。
-
-|目标平台|执行构建的环境|命令|
-| --- | --- | --- |
-|[Windows](https://flet.dev/docs/publish/windows/)|Windows|`uv run flet build windows . --python-version 3.13`|
-|[macOS](https://flet.dev/docs/publish/macos/)|macOS|`uv run flet build macos . --python-version 3.13`|
-|[Linux](https://flet.dev/docs/publish/linux/)|Linux，或 Windows 中的 WSL|`uv run flet build linux . --python-version 3.13`|
-
-需要构建 Web、Android 或 iOS 版本时，请先查看 Flet 官方对应平台说明；这些平台可能还需要配置网络权限，并调整示例中的桌面窗口代码。
