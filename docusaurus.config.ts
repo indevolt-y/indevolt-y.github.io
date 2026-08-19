@@ -65,11 +65,20 @@ const config: Config = {
       {
         createRedirects(existingPath: string) {
           const docVersionPath = "/docs/doc-version";
+          const localDevicePanelPath =
+            "/docs/developer/guides/opendata-local-device-panel";
 
           if (existingPath.endsWith(docVersionPath)) {
             return existingPath.replace(
               docVersionPath,
               "/docs/hardware/doc-version",
+            );
+          }
+
+          if (existingPath.endsWith(localDevicePanelPath)) {
+            return existingPath.replace(
+              localDevicePanelPath,
+              "/docs/developer/guides/macos-local-app",
             );
           }
 

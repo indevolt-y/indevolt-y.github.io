@@ -6,7 +6,7 @@
 
 ## 开发教程
 
-- [使用 OpenData 构建 macOS 本地设备面板](https://indevolt-y.github.io/zh/docs/developer/guides/macos-local-app)：使用 Python、Flet 和 OpenData HTTP 构建设备面板的完整教程。
+- [使用 OpenData 构建本地设备面板](https://indevolt-y.github.io/zh/docs/developer/guides/opendata-local-device-panel)：使用 Python、Flet 和 OpenData HTTP 构建设备面板的完整教程。
 
 ## AI 辅助开发
 

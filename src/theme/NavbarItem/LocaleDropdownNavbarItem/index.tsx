@@ -22,7 +22,7 @@ const developerPaths = [
   "/docs/developer/home-assistant",
   "/docs/developer/guides/ai-assisted-development-best-practices",
   "/docs/developer/guides/ai-assisted-development/expert-instructions",
-  "/docs/developer/guides/macos-local-app",
+  "/docs/developer/guides/opendata-local-device-panel",
 ];
 
 function getDeveloperPath(pathname: string): string | undefined {

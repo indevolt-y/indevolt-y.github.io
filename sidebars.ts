@@ -11,8 +11,8 @@ const developerSectionsSidebar = [
     items: [
       {
         type: 'doc',
-        id: 'developer/tutorials/macos-local-device-panel',
-        label: '使用 OpenData 构建 macOS 本地设备面板',
+        id: 'developer/tutorials/opendata-local-device-panel',
+        label: '使用 OpenData 构建本地设备面板',
       },
     ],
   },
