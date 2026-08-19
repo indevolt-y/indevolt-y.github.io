@@ -25,11 +25,7 @@ const developerPaths = [
   "/docs/developer/guides/opendata-local-device-panel",
 ];
 
-const bilingualDeveloperPaths = new Set([
-  "/docs/developer",
-  "/docs/developer/guides/build-indevolt-app-with-ai",
-  "/docs/developer/guides/ai-assisted-development/expert-instructions",
-]);
+const bilingualDeveloperPaths = new Set(developerPaths);
 
 function getDeveloperPath(pathname: string): string | undefined {
   return developerPaths.find(

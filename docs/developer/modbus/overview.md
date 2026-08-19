@@ -2,7 +2,7 @@
 title: Modbus Overview
 id: overview
 description: Learn how to communicate with micro energy storages through Modbus TCP or Modbus RTU for local data reading and control.
-draft: true
+slug: /developer/modbus
 ---
 
 # Modbus Overview
@@ -89,7 +89,7 @@ Before starting, ensure the following:
 :::info
 If your device currently only supports Wi-Fi communication, you can replace the communication module with the latest version when a wired network or RS485 communication is required. The new module supports Wi-Fi, Ethernet, and RS485 serial communication.
 
-For the replacement procedure, refer to: [Accessory Replacement](../../hardware/advanced/accessory-replacement.md)
+For the replacement procedure, refer to: [Accessory Replacement](/docs/hardware/advanced/accessory-replacement)
 :::
 
 ### 4.2 Enable Modbus

@@ -2,7 +2,7 @@
 title: HTTP/HTTPS Overview
 id: overview
 description: Access local device data and control the INDEVOLT micro energy storage system via standard HTTP APIs.
-draft: true
+slug: /developer/http
 ---
 
 # HTTP/HTTPS Overview

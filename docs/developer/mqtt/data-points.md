@@ -2,7 +2,7 @@
 title: MQTT Data Points
 id: data-points
 description: Definition of INDEVOLT MQTT data points and data formats.
-draft: true
+slug: /developer/mqtt-data-points
 ---
 
 # MQTT Data Points

@@ -2,7 +2,7 @@
 title: Register
 id: register-table
 description: INDEVOLT micro storage Modbus register structure and mapping description
-draft: true
+slug: /developer/modbus-register-table
 ---
 
 # Register

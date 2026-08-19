@@ -2,7 +2,7 @@
 title: MQTT Topic
 id: topic
 description: Description of the INDEVOLT MQTT Topic structure and message format.
-draft: true
+slug: /developer/mqtt-topic
 ---
 
 # MQTT Topic

@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "preview": "docusaurus serve --dir dist --build",
     "build": "docusaurus build --out-dir dist",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy --out-dir dist",

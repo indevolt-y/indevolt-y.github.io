@@ -2,7 +2,7 @@
 title: MQTT Overview
 id: overview
 description: Learn how to monitor and control INDEVOLT energy storage devices through MQTT.
-draft: true
+slug: /developer/mqtt
 ---
 
 # MQTT Overview

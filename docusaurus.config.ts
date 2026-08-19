@@ -5,11 +5,12 @@ import stripDocumentImages from "./plugins/strip-document-images";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const isChineseLocale =
-  process.env.DOCUSAURUS_CURRENT_LOCALE === "zh";
+const currentLocale =
+  process.env.DOCUSAURUS_CURRENT_LOCALE ?? "en";
 
-const isEnglishLocale =
-  process.env.DOCUSAURUS_CURRENT_LOCALE === "en";
+const isChineseLocale = currentLocale === "zh";
+
+const isEnglishLocale = currentLocale === "en";
 
 const showsDeveloperCenter = isChineseLocale || isEnglishLocale;
 

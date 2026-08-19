@@ -2,7 +2,7 @@
 title: API Reference
 id: api-reference
 description: todo
-draft: true
+slug: /developer/http-api
 ---
 
 # API Reference

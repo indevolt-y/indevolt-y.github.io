@@ -1,10 +1,11 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
-const isChineseLocale =
-  process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh';
+const currentLocale =
+  process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'en';
 
-const isEnglishLocale =
-  process.env.DOCUSAURUS_CURRENT_LOCALE === 'en';
+const isChineseLocale = currentLocale === 'zh';
+
+const isEnglishLocale = currentLocale === 'en';
 
 const developerSectionsSidebar = [
   {
@@ -85,13 +86,19 @@ const developerSectionsSidebar = [
   },
 ] satisfies SidebarsConfig[string];
 
-const developerSidebar = [
-  'developer/overview/introduction',
-  ...developerSectionsSidebar,
-] satisfies SidebarsConfig[string];
-
-const englishDeveloperSidebar = [
-  'developer/overview/introduction',
+const englishDeveloperSectionsSidebar = [
+  {
+    type: 'category',
+    collapsed: false,
+    label: 'Development tutorials',
+    items: [
+      {
+        type: 'doc',
+        id: 'developer/tutorials/opendata-local-device-panel',
+        label: 'OpenData HTTP API in practice',
+      },
+    ],
+  },
   {
     type: 'category',
     collapsed: false,
@@ -109,6 +116,63 @@ const englishDeveloperSidebar = [
       },
     ],
   },
+  {
+    type: 'category',
+    collapsed: false,
+    label: 'APIs and reference',
+    items: [
+      {
+        type: 'category',
+        collapsed: false,
+        label: 'HTTP',
+        items: [
+          'developer/http/overview',
+          'developer/http/api-reference',
+        ],
+      },
+      {
+        type: 'category',
+        collapsed: false,
+        label: 'Modbus',
+        items: [
+          'developer/modbus/overview',
+          'developer/modbus/register-table',
+        ],
+      },
+      {
+        type: 'category',
+        collapsed: false,
+        label: 'MQTT',
+        items: [
+          'developer/mqtt/overview',
+          'developer/mqtt/topic',
+          'developer/mqtt/data-points',
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
+    collapsed: false,
+    label: 'Ecosystem and integrations',
+    items: [
+      {
+        type: 'doc',
+        id: 'developer/integrations/home-assistant',
+        label: 'Home Assistant',
+      },
+    ],
+  },
+] satisfies SidebarsConfig[string];
+
+const developerSidebar = [
+  'developer/overview/introduction',
+  ...developerSectionsSidebar,
+] satisfies SidebarsConfig[string];
+
+const englishDeveloperSidebar = [
+  'developer/overview/introduction',
+  ...englishDeveloperSectionsSidebar,
 ] satisfies SidebarsConfig[string];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
