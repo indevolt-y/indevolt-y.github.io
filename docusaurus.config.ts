@@ -67,6 +67,8 @@ const config: Config = {
           const docVersionPath = "/docs/doc-version";
           const localDevicePanelPath =
             "/docs/developer/guides/opendata-local-device-panel";
+          const aiAppGuidePath =
+            "/docs/developer/guides/build-indevolt-app-with-ai";
 
           if (existingPath.endsWith(docVersionPath)) {
             return existingPath.replace(
@@ -79,6 +81,13 @@ const config: Config = {
             return existingPath.replace(
               localDevicePanelPath,
               "/docs/developer/guides/macos-local-app",
+            );
+          }
+
+          if (existingPath.endsWith(aiAppGuidePath)) {
+            return existingPath.replace(
+              aiAppGuidePath,
+              "/docs/developer/guides/ai-assisted-development-best-practices",
             );
           }
 

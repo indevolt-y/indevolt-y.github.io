@@ -1,9 +1,9 @@
 ---
 title: 手把手教你用AI做一个INDEVOLT APP
-id: using-ai
+id: build-indevolt-app-with-ai
 description: 不会编程也可以跟着完成：下载专家指令交给 AI，从描述需求、确认方案，到运行和验收一个连接 INDEVOLT 设备的本地 App
-sidebar_label: 手把手用 AI 做 App
-slug: /developer/guides/ai-assisted-development-best-practices
+sidebar_label: 手把手教你用AI做一个INDEVOLT APP
+slug: /developer/guides/build-indevolt-app-with-ai
 ---
 
 # 手把手教你用AI做一个INDEVOLT APP

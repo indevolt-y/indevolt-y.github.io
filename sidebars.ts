@@ -23,8 +23,8 @@ const developerSectionsSidebar = [
     items: [
       {
         type: 'doc',
-        id: 'developer/ai/using-ai',
-        label: '使用 AI 开发 INDEVOLT 软件',
+        id: 'developer/ai/build-indevolt-app-with-ai',
+        label: '手把手教你用AI做一个INDEVOLT APP',
       },
       {
         type: 'doc',
