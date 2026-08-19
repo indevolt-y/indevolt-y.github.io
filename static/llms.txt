@@ -1,6 +1,6 @@
 # INDEVOLT 开发者文档中心
 
-> INDEVOLT 中文开发者文档索引，包含开发教程、AI 辅助开发指令以及 HTTP、Modbus、MQTT 和 Home Assistant 参考资料。
+> INDEVOLT 中文开发者文档索引，包含开发教程、AI 辅助开发指令、HTTP、Modbus、MQTT 接口参考以及 Home Assistant 生态集成。
 
 请根据任务选择对应页面。开发步骤优先读取“开发教程”，AI 协作流程读取“AI 辅助开发”，接口字段与通信约束以“接口与参考”中的页面为准。
 
@@ -31,6 +31,10 @@
 - [MQTT Topic](https://indevolt-y.github.io/zh/docs/developer/mqtt-topic)：状态、控制和应答 Topic 参考。
 - [MQTT 数据点](https://indevolt-y.github.io/zh/docs/developer/mqtt-data-points)：MQTT 上报数据点定义。
 
-### Home Assistant
+## 生态与集成
 
 - [Home Assistant](https://indevolt-y.github.io/zh/docs/developer/home-assistant)：INDEVOLT 设备接入 Home Assistant 的说明。
+
+## 站点信息
+
+- [文档版本记录](https://indevolt-y.github.io/zh/docs/doc-version)：查看 INDEVOLT 文档站的版本更新记录。

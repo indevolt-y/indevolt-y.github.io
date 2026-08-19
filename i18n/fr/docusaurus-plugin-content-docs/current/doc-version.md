@@ -1,0 +1,28 @@
+---
+title: Historique des versions
+description: Historique des versions de la documentation des équipements de stockage d’énergie INDEVOLT
+---
+
+# Historique des versions
+
+| Date de mise à jour | Version | Contenu de la mise à jour |
+| ------------------- | ------- | -------------------------- |
+| 2026-07-31 | V1.0.18 | 1. Ajout du [guide RCD](./hardware/technical-note/rcd.md) <br/>2. Mise à jour de la documentation OpenData V2.0 |
+| 2026-07-24 | V1.0.17 | Ajout de la [description du mode veille profonde et du mode veille normal](./hardware/technical-note/deep-standby.md) |
+| 2026-07-16 | V1.0.16 | Mise à jour de la documentation sur le fonctionnement en cluster des micro-stockages : ajout des instructions de cluster RS485. |
+| 2026-07-03 | V1.0.15 | Ajouter la documentation micro-stockage en allemand   |
+| 2026-06-26 | V1.0.14 | Ajout de la documentation de [Surveillance multi-points des TC pour compteur triphasé](./hardware/advanced/three-phase-meter.md)         |
+| 2026-06-22 | V1.0.13 | Mise à jour de la documentation OpenData :<br /> 1. Ajout des points de données de la série BK1600 (SN de l'appareil, versions du firmware, température de la batterie, puissance/courant/tension PV) ainsi que des points de contrôle. |
+| 2026-06-18 | V1.0.12 | Ajout de la documentation sur le [Double comptage pour onduleurs tiers](./hardware/advanced/third-party-inverter-dual-metering.md)         |
+| 2026-06-11 | V1.0.11 | 1. Ajout de la documentation sur l’[intégration d’un onduleur tiers](./hardware/advanced/third-party-inverter.md)<br />2. Ajout de la documentation micro-stockage en néerlandais et en français |
+| 2026-06-08 | V1.0.10 | 1. Ajout des instructions de [remplacement d’accessoire](./hardware/advanced/accessory-replacement.md) <br />2. Mise à jour de l’historique des versions du firmware du micro-stockage |
+| 2026-05-18 | V1.0.9 | 1. Ajout de la documentation de [cluster](./hardware/technical-note/cluster.md) <br />2. Mise à jour de l’historique des versions du firmware du micro-stockage |
+| 2026-05-08 | V1.0.8 | 1. Ajout de l'[équilibrage du SOC des batteries](./hardware/technical-note/soc-balancing.md) |
+| 2026/04/24 | V1.0.7 | 1. Ajout de la [documentation sur la communication entre le micro-stockage et les équipements externes](./hardware/technical-note/device-communication.md)<br />2. Complément de l’historique des versions du firmware du micro-stockage |
+| 2026-04-23 | V1.0.6 | 1. Ajout de la [description du port bypass](./hardware/technical-note/bypass.md)<br />2. Suppression temporaire des FAQ erronées |
+| 2026-04-17 | V1.0.5 | Ajout de la [description du déclassement thermique PV/batterie](./hardware/technical-note/thermal-derating.md) |
+| 2026-03-26 | V1.0.4 | Mise à jour de la documentation OpenData :<br />1. Ajout de commentaires sur certains points de données<br />2. Ajout de nouveaux points de données accessibles<br />3. Optimisation des plages de configuration de certains points |
+| 2026-03-25 | V1.0.3 | Ajout de la [documentation d’intégration LoRa](./hardware/technical-note/lora.md) |
+| 2026-03-18 | V1.0.2 | Ajout de la [logique de recharge](./hardware/technical-note/recharge.md) et de la [calibration de l’énergie](./hardware/technical-note/energy-calibration.md) |
+| 2026-03-10 | V1.0.1 | Ajout de la [consommation en veille](./hardware/technical-note/standby-power.md) |
+| 2026-03-03 | V1.0.0 | Version initiale |

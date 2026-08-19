@@ -18,5 +18,9 @@
   "item.label.Developer Center": {
     "message": "开发者文档中心",
     "description": "Navbar item with label Developer Center"
+  },
+  "item.label.Doc Version": {
+    "message": "文档版本记录",
+    "description": "Navbar item with label Doc Version"
   }
 }

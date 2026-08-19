@@ -19,6 +19,10 @@
     "message": "INDEVOLT-app",
     "description": "The label of footer link with label=INDEVOLT App linking to docs/app/introduction"
   },
+  "link.item.label.Doc Version": {
+    "message": "Documentversies",
+    "description": "The label of footer link with label=Doc Version linking to docs/doc-version"
+  },
   "link.item.label.INDEVOLT": {
     "message": "INDEVOLT",
     "description": "The label of footer link with label=INDEVOLT linking to https://www.indevolt.com/"

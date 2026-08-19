@@ -248,6 +248,72 @@ article p > span > a {
     height: calc(100% - var(--ifm-navbar-height));
 }
 
+/* Documentation sidebar hierarchy */
+.theme-doc-sidebar-item-category-level-1 {
+    margin-top: 0.55rem;
+}
+
+.theme-doc-sidebar-item-category-level-1
+    > .menu__list-item-collapsible
+    > .menu__link {
+    background: rgb(18 175 250 / 7%);
+    border-radius: 0.45rem;
+    color: var(--ifm-heading-color);
+    font-weight: 600;
+}
+
+.theme-doc-sidebar-item-category-level-1
+    > .menu__list-item-collapsible
+    > .menu__link:hover {
+    background: rgb(18 175 250 / 12%);
+}
+
+.theme-doc-sidebar-item-category-level-1 > .menu__list {
+    border-left: 1px solid var(--ifm-border-color);
+    margin-left: 0.75rem;
+    padding-left: 0.25rem;
+}
+
+.theme-doc-sidebar-item-category-level-2
+    > .menu__list-item-collapsible
+    > .menu__link {
+    font-weight: 550;
+}
+
+.theme-doc-sidebar-item-link > .menu__link {
+    font-weight: 400;
+}
+
+.theme-doc-sidebar-item-link > .menu__link--active {
+    background: rgb(18 175 250 / 12%);
+    box-shadow: inset 2px 0 0 var(--ifm-color-primary);
+    color: var(--ifm-color-primary-darkest);
+    font-weight: 600;
+}
+
+html[data-theme="dark"]
+    .theme-doc-sidebar-item-category-level-1
+    > .menu__list-item-collapsible
+    > .menu__link {
+    background: rgb(44 184 251 / 10%);
+}
+
+html[data-theme="dark"]
+    .theme-doc-sidebar-item-category-level-1
+    > .menu__list-item-collapsible
+    > .menu__link:hover,
+html[data-theme="dark"]
+    .theme-doc-sidebar-item-link
+    > .menu__link--active {
+    background: rgb(44 184 251 / 16%);
+}
+
+html[data-theme="dark"]
+    .theme-doc-sidebar-item-link
+    > .menu__link--active {
+    color: var(--ifm-color-primary-light);
+}
+
 
 @media (max-width: 570px) {
     h1 {

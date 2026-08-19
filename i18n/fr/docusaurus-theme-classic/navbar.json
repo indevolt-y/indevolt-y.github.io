@@ -14,5 +14,9 @@
   "item.label.INDEVOLT App": {
     "message": "INDEVOLT App",
     "description": "Navbar item with label INDEVOLT App"
+  },
+  "item.label.Doc Version": {
+    "message": "Historique des versions",
+    "description": "Navbar item with label Doc Version"
   }
 }

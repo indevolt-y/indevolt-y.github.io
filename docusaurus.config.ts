@@ -13,11 +13,26 @@ const developerCenterLink = {
   to: "docs/developer",
 };
 
+const documentVersionLink = {
+  label: "Doc Version",
+  to: "docs/doc-version",
+};
+
 const config: Config = {
   title: "INDEVOLT Developer Docs",
   tagline:
     "Explore comprehensive documentation for INDEVOLT, including guides, tutorials, and API references.",
   favicon: "img/favicon.ico",
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "llms-txt",
+        href: "https://indevolt-y.github.io/llms.txt",
+        type: "text/plain",
+      },
+    },
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -43,7 +58,26 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  plugins: [["./plugins/tailwind-plugin.cjs", {}]],
+  plugins: [
+    ["./plugins/tailwind-plugin.cjs", {}],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        createRedirects(existingPath: string) {
+          const docVersionPath = "/docs/doc-version";
+
+          if (existingPath.endsWith(docVersionPath)) {
+            return existingPath.replace(
+              docVersionPath,
+              "/docs/hardware/doc-version",
+            );
+          }
+
+          return undefined;
+        },
+      },
+    ],
+  ],
   themes: ["@docusaurus/theme-mermaid"],
 
   // Even if you don't use internationalization, you can use this field to set
@@ -107,19 +141,21 @@ const config: Config = {
       },
       items: [
         {
-          label: "Docs",
+          label: "Micro Storage",
+          to: "docs/hardware/doc-intro",
           position: "left",
-          items: [
-            {
-              label: "Micro Storage",
-              to: "docs/hardware/doc-intro"
-            },
-            {
-              label: "INDEVOLT App",
-              to: "docs/app/introduction"
-            },
-            ...(isChineseLocale ? [developerCenterLink] : []),
-          ]
+        },
+        {
+          label: "INDEVOLT App",
+          to: "docs/app/introduction",
+          position: "left",
+        },
+        ...(isChineseLocale
+          ? [{ ...developerCenterLink, position: "left" as const }]
+          : []),
+        {
+          ...documentVersionLink,
+          position: "left",
         },
         {
           type: "localeDropdown",
@@ -148,7 +184,7 @@ const config: Config = {
               to: "docs/app/introduction"
             },
             ...(isChineseLocale ? [developerCenterLink] : []),
-            
+            documentVersionLink,
           ]
         },
         {

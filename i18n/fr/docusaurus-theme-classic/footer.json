@@ -34,5 +34,9 @@
   "link.item.label.INDEVOLT App": {
     "message": "INDEVOLT App",
     "description": "The label of footer link with label=INDEVOLT App linking to docs/app/introduction"
+  },
+  "link.item.label.Doc Version": {
+    "message": "Historique des versions",
+    "description": "The label of footer link with label=Doc Version linking to docs/doc-version"
   }
 }

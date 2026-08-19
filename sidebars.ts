@@ -6,6 +6,7 @@ const isChineseLocale =
 const developerSectionsSidebar = [
   {
     type: 'category',
+    collapsed: false,
     label: '开发教程',
     items: [
       {
@@ -17,6 +18,7 @@ const developerSectionsSidebar = [
   },
   {
     type: 'category',
+    collapsed: false,
     label: 'AI 辅助开发',
     items: [
       {
@@ -33,10 +35,12 @@ const developerSectionsSidebar = [
   },
   {
     type: 'category',
+    collapsed: false,
     label: '接口与参考',
     items: [
       {
         type: 'category',
+        collapsed: false,
         label: 'HTTP',
         items: [
           'developer/http/overview',
@@ -45,6 +49,7 @@ const developerSectionsSidebar = [
       },
       {
         type: 'category',
+        collapsed: false,
         label: 'Modbus',
         items: [
           'developer/modbus/overview',
@@ -53,6 +58,7 @@ const developerSectionsSidebar = [
       },
       {
         type: 'category',
+        collapsed: false,
         label: 'MQTT',
         items: [
           'developer/mqtt/overview',
@@ -60,6 +66,13 @@ const developerSectionsSidebar = [
           'developer/mqtt/data-points',
         ],
       },
+    ],
+  },
+  {
+    type: 'category',
+    collapsed: false,
+    label: '生态与集成',
+    items: [
       {
         type: 'doc',
         id: 'developer/integrations/home-assistant',
@@ -170,7 +183,6 @@ const sidebars: SidebarsConfig = {
     'hardware/maintenance',
     'hardware/glossary',
     'hardware/firmware',
-    'hardware/doc-version'
   ],
   ...(isChineseLocale ? {developerSidebar} : {}),
   appSidebar: [

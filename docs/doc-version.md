@@ -1,0 +1,28 @@
+---
+title: Doc Version History
+description: Version history of INDEVOLT energy storage device documentation
+---
+
+# Doc Version History
+
+| Date       | Version | Updates                                                  |
+| ---------- | ------- | -------------------------------------------------------- |
+| 2026-07-31 | V1.0.18 | 1. Added [RCD Guide](./hardware/technical-note/rcd.md)<br/>2. Update OpenData Documentation V2.0  |
+| 2026-07-24 | V1.0.17 | Added [Deep Standby and Normal Standby Description](./hardware/technical-note/deep-standby.md) |
+| 2026-07-16 | V1.0.16 | Updated the micro-storage cluster documentation: added RS485 cluster instructions. |
+| 2026-07-03 | V1.0.15 | Add German micro-storage documentation  |
+| 2026-06-26 | V1.0.14 | Added [Multi-Position CT Monitoring for Three-Phase Meters](./hardware/advanced/three-phase-meter.md)         |
+| 2026-06-22 | V1.0.13 | Updated the OpenData documentation:<br /> 1. Added BK1600 Series data points (device SN, firmware versions, battery temperature, PV power/current/voltage) and control points. |
+| 2026-06-18 | V1.0.12 | Added [Dual Metering for Third-Party Inverters](./hardware/advanced/third-party-inverter-dual-metering.md)         |
+| 2026-06-11 | V1.0.11 | 1. Added [Third-Party Inverter Integration Guide](./hardware/advanced/third-party-inverter.md)<br />2. Add Dutch and French micro-storage documentation   |
+| 2026-06-08 | V1.0.10 | 1. Added [Accessory Replacement](./hardware/advanced/accessory-replacement.md) guide <br />2. Added Micro-Storage Firmware Release Notes |
+| 2026-05-18 | V1.0.9 | 1. Added [Cluster](./hardware/technical-note/cluster.md) guide <br />2. Added Micro-Storage Firmware Release Notes |
+| 2026-05-08 | V1.0.8 | Added [Battery SOC Balancing](./hardware/technical-note/soc-balancing.md) |
+| 2026-04-24 | V1.0.7  | 1. Added [Communication with External Devices](./hardware/technical-note/device-communication.md)<br />2. Added Micro-Storage Firmware Release Notes |
+| 2026-04-23 | V1.0.6  | 1. Added [Bypass Socket guide](./hardware/technical-note/bypass.md)<br />2. Temporarily removed incorrect FAQ |
+| 2026-04-17 | V1.0.5  | Added [PV and battery temperature derating explanation](./hardware/technical-note/thermal-derating.md)    |
+| 2026-03-26 | V1.0.4  | Updated OpenData documentation:<br />1. Added notes for certain data points<br />2. Added new readable data points<br />3. Optimized configuration ranges for certain data points |
+| 2026-03-25 | V1.0.3  | Added [LoRa Connection Guide](./hardware/technical-note/lora.md)                                |
+| 2026-03-18 | V1.0.2  | Added [Backup Charging Logic](./hardware/technical-note/recharge.md) and [Energy Calibration Guide](./hardware/technical-note/energy-calibration.md) |
+| 2026-03-10 | V1.0.1  | Added [Standby Power Consumption Guide](./hardware/technical-note/standby-power.md)                    |
+| 2026-03-03 | V1.0.0  | Initial release                                          |
