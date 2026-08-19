@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">本地 INDEVOLT 设备面板界面示意</title>
+  <desc id="desc">界面上方用于输入设备地址和端口，中间显示设备状态，下方提供可滚动和复制的请求日志。</desc>
+  <defs>
+    <filter id="panel-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#17213b" flood-opacity="0.13"/>
+    </filter>
+    <style>
+      .heading { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #171a22; }
+      .legend { font: 600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #58647d; }
+      .label { font: 600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #59647a; }
+      .value { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1e2430; }
+      .input { font: 500 18px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #293247; }
+      .button { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; text-anchor: middle; }
+      .log { font: 400 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #48536a; }
+      .badge { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" rx="30" fill="#f6f8fc"/>
+  <text class="heading" x="48" y="56">做完后，你会得到这样的本地设备面板</text>
+
+  <g transform="translate(720 30)">
+    <circle cx="0" cy="14" r="14" fill="#3768e5"/><text class="badge" x="0" y="19">1</text>
+    <text class="legend" x="24" y="19">连接设备</text>
+    <circle cx="132" cy="14" r="14" fill="#27a36a"/><text class="badge" x="132" y="19">2</text>
+    <text class="legend" x="156" y="19">查看状态</text>
+    <circle cx="264" cy="14" r="14" fill="#e58c28"/><text class="badge" x="264" y="19">3</text>
+    <text class="legend" x="288" y="19">复制日志</text>
+  </g>
+
+  <g transform="translate(48 92)" filter="url(#panel-shadow)">
+    <rect width="1104" height="580" rx="24" fill="#ffffff"/>
+    <rect width="1104" height="58" rx="24" fill="#202633"/>
+    <rect y="34" width="1104" height="24" fill="#202633"/>
+    <circle cx="28" cy="29" r="6" fill="#ff6b6b"/>
+    <circle cx="48" cy="29" r="6" fill="#ffd166"/>
+    <circle cx="68" cy="29" r="6" fill="#56d48f"/>
+    <text x="552" y="36" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#ffffff">INDEVOLT 本地设备面板</text>
+
+    <text class="label" x="40" y="94">设备 IPv4 地址</text>
+    <rect x="40" y="108" width="410" height="54" rx="10" fill="#f7f9fc" stroke="#cbd3e2" stroke-width="2"/>
+    <text class="input" x="58" y="142">192.168.8.247</text>
+
+    <text class="label" x="474" y="94">端口</text>
+    <rect x="474" y="108" width="142" height="54" rx="10" fill="#f7f9fc" stroke="#cbd3e2" stroke-width="2"/>
+    <text class="input" x="496" y="142">8080</text>
+
+    <rect x="642" y="108" width="150" height="54" rx="27" fill="#3768e5"/>
+    <text class="button" x="717" y="142" fill="#ffffff">连接</text>
+    <rect x="812" y="108" width="150" height="54" rx="27" fill="#edf2ff"/>
+    <text class="button" x="887" y="142" fill="#3768e5">刷新</text>
+    <circle cx="1020" cy="135" r="16" fill="#3768e5"/><text class="badge" x="1020" y="140">1</text>
+
+    <g transform="translate(40 196)">
+      <rect width="238" height="112" rx="16" fill="#f7f9fc" stroke="#e1e6f0"/>
+      <text class="label" x="20" y="34">序列号</text>
+      <text class="value" x="20" y="76">IDV-24001862</text>
+    </g>
+    <g transform="translate(298 196)">
+      <rect width="238" height="112" rx="16" fill="#f0f8f4" stroke="#d6ebdf"/>
+      <text class="label" x="20" y="34">电池电量 SOC</text>
+      <text class="value" x="20" y="76" fill="#21885a">68%</text>
+    </g>
+    <g transform="translate(556 196)">
+      <rect width="238" height="112" rx="16" fill="#fff8ee" stroke="#f3e2c7"/>
+      <text class="label" x="20" y="34">电池功率</text>
+      <text class="value" x="20" y="76">-426 W</text>
+    </g>
+    <g transform="translate(814 196)">
+      <rect width="250" height="112" rx="16" fill="#f2f5ff" stroke="#dce4fb"/>
+      <text class="label" x="20" y="34">运行状态</text>
+      <text class="value" x="20" y="76">充电中</text>
+      <circle cx="218" cy="66" r="9" fill="#27a36a"/>
+    </g>
+    <circle cx="1044" cy="214" r="16" fill="#27a36a"/><text class="badge" x="1044" y="219">2</text>
+
+    <text class="label" x="40" y="344">最后更新时间：2026-08-19 17:17:48</text>
+    <text class="label" x="40" y="384">请求日志（可滚动、全选和复制）</text>
+    <rect x="40" y="398" width="1024" height="146" rx="12" fill="#171c27"/>
+    <text class="log" x="60" y="428" fill="#a9b7d0">[17:17:44.033] READY OpenData endpoint port: 8080</text>
+    <text class="log" x="60" y="454" fill="#a9b7d0">[17:17:48.840] REQUEST POST http://192.168.8.247:8080/rpc/Indevolt.GetData</text>
+    <text class="log" x="60" y="480" fill="#77dda7">[17:17:48.901] HTTP 200 OK</text>
+    <text class="log" x="60" y="506" fill="#a9b7d0">[17:17:48.903] DATA serial=IDV-24001862 soc=68 power=-426 state=charging</text>
+    <rect x="1047" y="414" width="5" height="48" rx="3" fill="#6e7890"/>
+    <circle cx="1038" cy="518" r="16" fill="#e58c28"/><text class="badge" x="1038" y="523">3</text>
+  </g>
+</svg>

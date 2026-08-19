@@ -191,6 +191,27 @@ article .markdown img {
     margin: 0 auto;
 }
 
+article .markdown p:has(> img[alt^="AI 教程示意图："]) {
+    border-radius: 12px;
+    margin: 1.5rem 0 0.6rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+article .markdown img[alt^="AI 教程示意图："] {
+    display: block;
+    height: auto;
+    margin: 0;
+    width: 100%;
+}
+
+@media (max-width: 996px) {
+    article .markdown img[alt^="AI 教程示意图："] {
+        min-width: 56rem;
+    }
+}
+
 article .markdown video {
     border-radius: 10px;
     display: flex;
