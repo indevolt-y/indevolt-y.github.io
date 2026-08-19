@@ -30,7 +30,7 @@ import TabItem from '@theme/TabItem';
 
 :::note 浏览器运行限制
 
-在线示例在浏览器内运行，无需本地安装。连接局域网设备时，浏览器可能要求授予局域网访问权限，设备也需要允许浏览器请求。
+在线示例在浏览器内运行，适合查看界面和源码。连接真实设备需要设备允许浏览器跨域请求；如日志出现 `Failed to fetch`，请下载 Python 源文件并在同一局域网内本地运行。
 
 [打开在线示例](https://studio.flet.dev/apps/6puPy0aXh5) · <a href="/downloads/indevolt-opendata-panel.py" download="main.py">下载 Python 源文件</a>
 
