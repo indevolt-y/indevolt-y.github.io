@@ -1,52 +1,53 @@
 ---
-title: Register
-description: INDEVOLT micro storage Modbus register structure and mapping description
-draft: true
+title: 寄存器说明
+id: register-table
+description: INDEVOLT 微储 Modbus 寄存器结构与映射说明
+slug: /developer/modbus-register-table
 ---
 
-# Register
+# 寄存器说明
 
-Whether using Modbus TCP or Modbus RTU, the register addresses, function codes, and data formats are exactly the same. The only difference is the communication method.
+无论使用 Modbus TCP 还是 Modbus RTU，寄存器地址、功能码及数据格式完全一致，仅通信方式不同。
 
-Internal data of the energy storage system (EMS / BMS / PCS / Meter, etc.) is mapped to Modbus registers.
+储能系统内部数据（EMS / BMS / PCS / Meter 等）统一映射为 Modbus 寄存器。
 
-Device registers are divided according to **functional systems**:
-- [System](#system)
-- [Socket](#socket)
-- [PV](#pv)
-- [Meter](#meter)
-- [Load](#load)
-- [Inverter](#inverter)
-- [Grid](#grid)
-- [Cluster](#cluster)
-- [Bypass](#bypass)
-- [Battery](#battery)
-- [AC Output](#ac-output)
+设备寄存器按**功能系统**进行划分：
+
+- [System](#system)（系统级）
+- [Socket](#socket)（插座）
+- [PV](#pv)（光伏）
+- [Meter](#meter)（电表）
+- [Load](#load)（负载）
+- [Inverter](#inverter)（逆变器）
+- [Grid](#grid)（电网）
+- [Cluster](#cluster)（集群）
+- [Bypass](#bypass)（旁路）
+- [Battery](#battery)（电池）
+- [AC Output](#ac-output)（交流输出）
 
 **Register Type**
 
-Each system uses standard data groups to describe **data attributes**:
+每个 System 内部统一使用标准数据分组，用于描述**数据属性**：
 
-| Group | Description |
+| 分组            | 说明                          |
 | --------------- | ----------------------------- |
-| Event | Event records (alarms) |
-| Info | Basic device information (model / version, etc.) |
-| Mode | Operating modes |
-| Real Time Data | Real-time measurement data |
-| Real Time State | Real-time status bits (switches / flags) |
-| Settings | Configurable parameters |
-| Statistics | Accumulated data |
-| Status | Operating status |
+| Event           | 事件记录（报警）              |
+| Info            | 设备基础信息（型号 / 版本等） |
+| Mode            | 运行模式                      |
+| Real Time Data  | 实时测量数据                  |
+| Real Time State | 实时状态位（开关 / 标志位）   |
+| Settings        | 可配置参数                    |
+| Statistics      | 累计数据                      |
+| Status          | 运行状态                      |
 
-:::tip Register Address Description
+:::tip 寄存器地址说明
 
-Different Modbus tools may display register addresses in different formats. Some tools use:
+不同 Modbus 工具对寄存器地址的显示方式可能不同。有些工具使用：
+- 从 `0` 开始的实际地址
+- 从 `1` 开始的地址
+- 带 `40001` 前缀的保持寄存器地址
 
-- Actual addresses starting from `0`
-- Addresses starting from `1`
-- Holding register addresses with a `40001` prefix
-
-Therefore, the same register may be displayed differently in different software tools.
+因此，同一个寄存器在不同软件中，显示方式可能不同。
 
 :::
 

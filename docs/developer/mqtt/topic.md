@@ -1,5 +1,6 @@
 ---
 title: MQTT Topic
+id: topic
 description: Description of the INDEVOLT MQTT Topic structure and message format.
 draft: true
 ---
@@ -34,7 +35,7 @@ mosquitto_sub -h 127.0.0.1 -t "/test/subtopic" -v
 
 A single Topic may contain multiple data types. Clients can identify the message type through the `dataType` field.
 
-The Key in the JSON message corresponds to the device data point, and the Value represents the corresponding data value. For detailed data point definitions, refer to [MQTT Data Points](./mqtt-data-points.md).
+The Key in the JSON message corresponds to the device data point, and the Value represents the corresponding data value. For detailed data point definitions, refer to [MQTT Data Points](./data-points.md).
 
 | dataType       | Description                |
 | -------------- | -------------------------- |
@@ -120,7 +121,7 @@ The `dataMap` array can contain one or multiple Modbus commands. The device exec
 
 The content of `commandString` must follow the Modbus message format, including the device address, function code, register address, data, and CRC checksum.
 
-For detailed register addresses, refer to: [Modbus Register Description](./modbus-register-table.md).
+For detailed register addresses, refer to: [Modbus Register Description](../modbus/register-table.md).
 
 ---
 

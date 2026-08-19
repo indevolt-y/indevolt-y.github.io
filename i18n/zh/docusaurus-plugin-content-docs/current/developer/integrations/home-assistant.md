@@ -1,6 +1,7 @@
 ---
 title: Home Assistant 集成
 id: home-assistant
+sidebar_label: Home Assistant 集成
 description: 将 INDEVOLT 储能系统接入 Home Assistant，实现本地监控与自动化控制。
 slug: /developer/home-assistant
 toc_max_heading_level: 2

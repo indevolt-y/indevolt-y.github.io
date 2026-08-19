@@ -1,5 +1,6 @@
 ---
 title: MQTT Overview
+id: overview
 description: Learn how to monitor and control INDEVOLT energy storage devices through MQTT.
 draft: true
 ---
@@ -111,7 +112,7 @@ MQTT supports subscribing to a single Topic or using **wildcards** for batch sub
 | `+`      | Matches a single level | `energy/+/soc`<br />Matches `energy/device1/soc` and `energy/device2/soc`.<br />It does not match `energy/group/device1/soc` because it contains an additional level. |
 | `#`      | Matches all levels     | `energy/#`<br />Subscribes to all Topics under `energy`, including `energy/device1/soc`, `energy/device1/power`, and `energy/device2/status`.                         |
 
-For the complete Topic definition, refer to: [MQTT Topic](./mqtt-topic.md)
+For the complete Topic definition, refer to: [MQTT Topic](./topic.md)
 
 ---
 

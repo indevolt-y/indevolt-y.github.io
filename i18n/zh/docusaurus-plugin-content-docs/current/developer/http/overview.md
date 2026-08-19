@@ -1,6 +1,6 @@
 ---
 title: HTTP/HTTPS 概述
-id: http
+id: overview
 description: 通过标准 HTTP 接口访问本地设备数据并控制 INDEVOLT 微型储能系统。
 slug: /developer/http
 ---
@@ -124,7 +124,7 @@ http://{IP_ADDRESS}:8080/rpc/{API}
 ```
 其中：
 - `{IP_ADDRESS}`：设备的 IP 地址。
-- `{API}`：API 名称，例如 `Indevolt.GetData`。完整接口说明请参见 [API 参考](./http-api.md)。
+- `{API}`：API 名称，例如 `Indevolt.GetData`。完整接口说明请参见 [API 参考](./api-reference.md)。
 
 **请求示例**
 

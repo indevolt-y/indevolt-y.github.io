@@ -1,6 +1,6 @@
 ---
 title: MQTT 点位
-id: mqtt-data-points
+id: data-points
 description: 介绍 INDEVOLT MQTT 消息中的数据点定义、数据类型及字段说明。
 slug: /developer/mqtt-data-points
 ---

@@ -1,6 +1,6 @@
 ---
 title: MQTT Topic
-id: mqtt-topic
+id: topic
 description: INDEVOLT MQTT Topic 结构及消息格式说明。
 slug: /developer/mqtt-topic
 ---
@@ -35,7 +35,7 @@ mosquitto_sub -h 127.0.0.1 -t "/test/subtopic" -v
 
 同一个 Topic 下可能包含多种数据类型，客户端可通过 `dataType` 字段区分消息类型。
 
-JSON 消息中的 Key 对应设备数据点位，Value 为对应的数据值。详细数据点定义请参考 [MQTT Data Points](./mqtt-data-points)。
+JSON 消息中的 Key 对应设备数据点位，Value 为对应的数据值。详细数据点定义请参考 [MQTT Data Points](./data-points.md)。
 
 | dataType       | 说明           |
 | -------------- | -------------- |
@@ -147,7 +147,7 @@ mosquitto_pub -h 127.0.0.1 -t "/test/subtopic/control" -m '{}'
 | `groupID` | String | 当前命令编号，从 `0` 开始。 |
 | `commandString` | String | Modbus 指令，十六进制字符串格式。 |
 
-`commandString` 的内容应符合 Modbus 报文格式，包括设备地址、功能码、寄存器地址、数据及 CRC 校验。具体寄存器地址请参考：[Modbus 寄存器说明](./modbus-register-table.md)。
+`commandString` 的内容应符合 Modbus 报文格式，包括设备地址、功能码、寄存器地址、数据及 CRC 校验。具体寄存器地址请参考：[Modbus 寄存器说明](../modbus/register-table.md)。
 
 ---
 

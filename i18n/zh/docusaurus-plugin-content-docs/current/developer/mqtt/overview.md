@@ -1,6 +1,6 @@
 ---
 title: MQTT 概述
-id: mqtt
+id: overview
 description: 介绍如何通过 MQTT 查看和控制微储设备。
 slug: /developer/mqtt
 ---
@@ -112,7 +112,7 @@ MQTT 支持订阅单个 Topic，也支持使用**通配符**批量订阅。
 | `+`    | 匹配单层     |  `energy/+/soc` <br />可以匹配 `energy/device1/soc`，`energy/device2/soc`；<br />但不能匹配 `energy/group/device1/soc`，因为多了一层   |
 | `#`    | 匹配所有层级 | `energy/#` <br />表示订阅 `energy` 下所有 Topic，包括：`energy/device1/soc`、`energy/device1/power`、`energy/device2/status`     |
 
-完整 Topic 定义请参考：[MQTT Topic](./mqtt-topic.md)
+完整 Topic 定义请参考：[MQTT Topic](./topic.md)
 
 ---
 

@@ -8,41 +8,41 @@ const developerGuidesSidebar = [
     type: 'category',
     label: '开发指南',
     items: [
-      'developer/ai-assisted-development-best-practices',
-      'developer/tutorial-macos-local-app',
+      'developer/guides/ai-assisted-development-best-practices',
+      'developer/guides/tutorial-macos-local-app',
     ],
   },
 ] satisfies SidebarsConfig[string];
 
 const developerSidebar = [
-  'developer/introduction',
+  'developer/overview/introduction',
   ...developerGuidesSidebar,
   {
     type: 'category',
     label: 'HTTP/HTTPS',
     items: [
-      'developer/http',
-      'developer/http-api',
+      'developer/http/overview',
+      'developer/http/api-reference',
     ],
   },
   {
     type: 'category',
     label: 'Modbus',
     items: [
-      'developer/modbus',
-      'developer/modbus-register-table',
+      'developer/modbus/overview',
+      'developer/modbus/register-table',
     ],
   },
   {
     type: 'category',
     label: 'MQTT',
     items: [
-      'developer/mqtt',
-      'developer/mqtt-topic',
-      'developer/mqtt-data-points',
+      'developer/mqtt/overview',
+      'developer/mqtt/topic',
+      'developer/mqtt/data-points',
     ],
   },
-  'developer/home-assistant',
+  'developer/integrations/home-assistant',
 ] satisfies SidebarsConfig[string];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)

@@ -1,5 +1,6 @@
 ---
 title: Introduction
+id: introduction
 description: Overview of the INDEVOLT device local and cloud data communication framework
 draft: true
 ---
@@ -20,15 +21,15 @@ With OpenData, you can:
 
 OpenData supports multiple common industrial and IoT protocols to meet different application scenarios:
 
-- [**HTTP / HTTP Digest / HTTPS**](./http.md)
+- [**HTTP / HTTP Digest / HTTPS**](../http/overview.md)
   - Suitable for API calls from cloud platforms and applications
   - Supports on-demand device data queries
 
-- [**Modbus TCP / RTU**](./modbus.md)
+- [**Modbus TCP / RTU**](../modbus/overview.md)
   - Suitable for local systems and energy management systems (HEMS)
   - Reads or writes device data through registers
 
-- [**MQTT**](./mqtt.md)
+- [**MQTT**](../mqtt/overview.md)
   - Suitable for real-time data publishing and IoT scenarios
   - Enables efficient data synchronization based on the publish/subscribe model
 

@@ -20,7 +20,7 @@ slug: /developer/guides/macos-local-app
 |项目依赖|Flet 0.86.5、Requests 2.34.2|
 |构建环境|Xcode 15+、CocoaPods 1.16+；Apple Silicon 需要 Rosetta 2|
 
-OpenData HTTP 服务使用设备的 `8080` 端口。请求格式、错误码和数据点定义以 [OpenData HTTP 说明](./http.md) 与 [HTTP API Reference](./http-api.md) 为准。
+OpenData HTTP 服务使用设备的 `8080` 端口。请求格式、错误码和数据点定义以 [OpenData HTTP 说明](../http/overview.md) 与 [HTTP API Reference](../http/api-reference.md) 为准。
 
 ## 项目结构
 
@@ -521,9 +521,9 @@ uv run flet build macos . --python-version 3.13
 
 ## 相关资料
 
-- [INDEVOLT OpenData 介绍](./introduction.md)
-- [INDEVOLT OpenData HTTP 说明](./http.md)
-- [INDEVOLT OpenData HTTP API Reference](./http-api.md)
+- [INDEVOLT OpenData 介绍](../overview/introduction.md)
+- [INDEVOLT OpenData HTTP 说明](../http/overview.md)
+- [INDEVOLT OpenData HTTP API Reference](../http/api-reference.md)
 - [uv 项目文档](https://docs.astral.sh/uv/guides/projects/)
 - [Requests 文档](https://requests.readthedocs.io/)
 - [Flet 异步应用](https://flet.dev/docs/cookbook/async-apps/)

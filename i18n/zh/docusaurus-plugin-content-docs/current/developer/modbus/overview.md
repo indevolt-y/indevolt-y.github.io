@@ -1,6 +1,6 @@
 ---
 title: Modbus 概述
-id: modbus
+id: overview
 description: 了解如何通过 Modbus TCP 或 Modbus RTU 与微储设备通信，实现本地数据读取与控制。
 slug: /developer/modbus
 ---
@@ -90,7 +90,7 @@ flowchart LR
 :::info
 如果设备当前仅支持 Wi-Fi 通讯，在需要接入有线网络或 RS485 通信的场景下，可更换为新版本通信模块（支持 Wi-Fi、以太网与 RS485 串口）。
 
-具体更换方法请参考：[配件更换](../hardware/advanced/accessory-replacement.md)
+具体更换方法请参考：[配件更换](../../hardware/advanced/accessory-replacement.md)
 :::
 
 ### 4.2 开启 Modbus
@@ -120,7 +120,7 @@ flowchart LR
 
 ### 4.4 读取数据
 
-连接成功后，即可读取设备寄存器。寄存器地址请参考 [Modbus 寄存器说明](./modbus-register-table.md)。
+连接成功后，即可读取设备寄存器。寄存器地址请参考 [Modbus 寄存器说明](./register-table.md)。
 
 ---
 

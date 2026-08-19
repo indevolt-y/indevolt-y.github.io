@@ -1,5 +1,6 @@
 ---
 title: Home Assistant Integration
+id: home-assistant
 description: Integrate the INDEVOLT micro energy storage with Home Assistant to enable local monitoring and automation.
 draft: true
 toc_min_heading_level: 2
