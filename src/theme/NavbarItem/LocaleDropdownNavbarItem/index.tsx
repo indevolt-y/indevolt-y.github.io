@@ -10,23 +10,22 @@ import type { Props } from "@theme/NavbarItem/LocaleDropdownNavbarItem";
 
 import styles from "./styles.module.css";
 
-const legacyDeveloperPaths: Record<string, string> = {
-  "/docs/developer": "/docs/hardware/open-data/introduction",
-  "/docs/developer/http": "/docs/hardware/open-data/http",
-  "/docs/developer/http-api": "/docs/hardware/open-data/http-api",
-  "/docs/developer/modbus": "/docs/hardware/open-data/modbus",
-  "/docs/developer/modbus-register-table":
-    "/docs/hardware/open-data/modbus-register-table",
-  "/docs/developer/mqtt": "/docs/hardware/open-data/mqtt",
-  "/docs/developer/mqtt-topic": "/docs/hardware/open-data/mqtt-topic",
-  "/docs/developer/mqtt-data-points":
-    "/docs/hardware/open-data/mqtt-data-points",
-  "/docs/developer/home-assistant":
-    "/docs/hardware/open-data/home-assistant",
-};
+const developerPaths = [
+  "/docs/developer",
+  "/docs/developer/http",
+  "/docs/developer/http-api",
+  "/docs/developer/modbus",
+  "/docs/developer/modbus-register-table",
+  "/docs/developer/mqtt",
+  "/docs/developer/mqtt-topic",
+  "/docs/developer/mqtt-data-points",
+  "/docs/developer/home-assistant",
+  "/docs/developer/guides/ai-assisted-development-best-practices",
+  "/docs/developer/guides/macos-local-app",
+];
 
 function getDeveloperPath(pathname: string): string | undefined {
-  return Object.keys(legacyDeveloperPaths).find(
+  return developerPaths.find(
     (path) => pathname === path || pathname.endsWith(path),
   );
 }
@@ -61,7 +60,7 @@ export default function LocaleDropdownNavbarItem({
     const targetPath =
       locale === currentLocale
         ? pathname
-        : `${localePrefix}${legacyDeveloperPaths[developerPath]}`;
+        : `${localePrefix}/`;
 
     return {
       label: localeConfigs[locale]!.label,

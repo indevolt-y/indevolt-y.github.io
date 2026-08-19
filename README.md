@@ -23,3 +23,7 @@ pnpm run build
 ```
 
 This command generates static content into the `dist` directory and can be served using any static contents hosting service.
+
+```bash
+pnpm exec docusaurus start --locale zh
+```

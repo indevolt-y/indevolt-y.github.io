@@ -3,43 +3,46 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const isChineseLocale =
   process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh';
 
+const developerGuidesSidebar = [
+  {
+    type: 'category',
+    label: '开发指南',
+    items: [
+      'developer/ai-assisted-development-best-practices',
+      'developer/tutorial-macos-local-app',
+    ],
+  },
+] satisfies SidebarsConfig[string];
+
 const developerSidebar = [
-  'hardware/open-data/introduction',
+  'developer/introduction',
+  ...developerGuidesSidebar,
   {
     type: 'category',
     label: 'HTTP/HTTPS',
     items: [
-      'hardware/open-data/http',
-      'hardware/open-data/http-api',
+      'developer/http',
+      'developer/http-api',
     ],
   },
   {
     type: 'category',
     label: 'Modbus',
     items: [
-      'hardware/open-data/modbus',
-      'hardware/open-data/modbus-register-table',
+      'developer/modbus',
+      'developer/modbus-register-table',
     ],
   },
   {
     type: 'category',
     label: 'MQTT',
     items: [
-      'hardware/open-data/mqtt',
-      'hardware/open-data/mqtt-topic',
-      'hardware/open-data/mqtt-data-points',
+      'developer/mqtt',
+      'developer/mqtt-topic',
+      'developer/mqtt-data-points',
     ],
   },
-  'hardware/open-data/home-assistant',
-] satisfies SidebarsConfig[string];
-
-const openDataSidebar = [
-  {
-    type: 'category',
-    collapsed: false,
-    label: 'OpenData',
-    items: developerSidebar,
-  },
+  'developer/home-assistant',
 ] satisfies SidebarsConfig[string];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -126,7 +129,6 @@ const sidebars: SidebarsConfig = {
         'hardware/technical-note/rcd',
       ],
     },
-    ...(isChineseLocale ? [] : openDataSidebar),
     {
       type: 'category',
       label: 'Technical Specification',
