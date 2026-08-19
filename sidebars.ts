@@ -8,7 +8,14 @@ const developerGuidesSidebar = [
     type: 'category',
     label: '开发指南',
     items: [
-      'developer/guides/ai-assisted-development-best-practices',
+      {
+        type: 'category',
+        label: 'AI 辅助开发',
+        items: [
+          'developer/guides/ai-assisted-development/guide',
+          'developer/guides/ai-assisted-development/expert-instructions',
+        ],
+      },
       'developer/guides/tutorial-macos-local-app',
     ],
   },

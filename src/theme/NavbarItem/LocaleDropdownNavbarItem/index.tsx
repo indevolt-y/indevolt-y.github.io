@@ -21,6 +21,7 @@ const developerPaths = [
   "/docs/developer/mqtt-data-points",
   "/docs/developer/home-assistant",
   "/docs/developer/guides/ai-assisted-development-best-practices",
+  "/docs/developer/guides/ai-assisted-development/expert-instructions",
   "/docs/developer/guides/macos-local-app",
 ];
 

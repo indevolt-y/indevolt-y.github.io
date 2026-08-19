@@ -1,12 +1,12 @@
 ---
-title: V3｜用 INDEVOLT OpenData 构建一个 macOS 本地 App
+title: 使用 OpenData 构建 macOS 本地设备面板
 id: tutorial-macos-local-app
 description: 使用 Python、Flet 和 OpenData HTTP 构建 macOS 本地设备面板的完整教程
-sidebar_label: macOS 本地 App 教程
+sidebar_label: macOS 本地设备面板
 slug: /developer/guides/macos-local-app
 ---
 
-# V3｜用 INDEVOLT OpenData 构建一个 macOS 本地 App
+# 使用 OpenData 构建 macOS 本地设备面板
 
 通过阅读本文档并按照其中的步骤完成示例项目，你可以得到一个可在 macOS 上运行的 INDEVOLT OpenData 桌面 App。这个 App 可以显示设备序列号、电池 SOC、充放电状态、电池直流功率和前面板灯带状态，并支持自动刷新、手动刷新以及开启或关闭前面板灯带。
 
