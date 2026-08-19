@@ -1,6 +1,6 @@
 ---
 title: 使用 OpenData 构建 macOS 本地设备面板
-id: tutorial-macos-local-app
+id: macos-local-device-panel
 description: 使用 Python、Flet 和 OpenData HTTP 构建 macOS 本地设备面板的完整教程
 sidebar_label: macOS 本地设备面板
 slug: /developer/guides/macos-local-app

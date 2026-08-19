@@ -3,53 +3,75 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const isChineseLocale =
   process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh';
 
-const developerGuidesSidebar = [
+const developerSectionsSidebar = [
   {
     type: 'category',
-    label: '开发指南',
+    label: '开发教程',
+    items: [
+      {
+        type: 'doc',
+        id: 'developer/tutorials/macos-local-device-panel',
+        label: '使用 OpenData 构建 macOS 本地设备面板',
+      },
+    ],
+  },
+  {
+    type: 'category',
+    label: 'AI 辅助开发',
+    items: [
+      {
+        type: 'doc',
+        id: 'developer/ai/using-ai',
+        label: '使用 AI 开发 INDEVOLT 软件',
+      },
+      {
+        type: 'doc',
+        id: 'developer/ai/expert-instructions',
+        label: 'INDEVOLT 软件开发专家指令',
+      },
+    ],
+  },
+  {
+    type: 'category',
+    label: '接口与参考',
     items: [
       {
         type: 'category',
-        label: 'AI 辅助开发',
+        label: 'HTTP',
         items: [
-          'developer/guides/ai-assisted-development/guide',
-          'developer/guides/ai-assisted-development/expert-instructions',
+          'developer/http/overview',
+          'developer/http/api-reference',
         ],
       },
-      'developer/guides/tutorial-macos-local-app',
+      {
+        type: 'category',
+        label: 'Modbus',
+        items: [
+          'developer/modbus/overview',
+          'developer/modbus/register-table',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'MQTT',
+        items: [
+          'developer/mqtt/overview',
+          'developer/mqtt/topic',
+          'developer/mqtt/data-points',
+        ],
+      },
+      {
+        type: 'doc',
+        id: 'developer/integrations/home-assistant',
+        label: 'Home Assistant',
+      },
     ],
   },
 ] satisfies SidebarsConfig[string];
 
 const developerSidebar = [
   'developer/overview/introduction',
-  ...developerGuidesSidebar,
-  {
-    type: 'category',
-    label: 'HTTP/HTTPS',
-    items: [
-      'developer/http/overview',
-      'developer/http/api-reference',
-    ],
-  },
-  {
-    type: 'category',
-    label: 'Modbus',
-    items: [
-      'developer/modbus/overview',
-      'developer/modbus/register-table',
-    ],
-  },
-  {
-    type: 'category',
-    label: 'MQTT',
-    items: [
-      'developer/mqtt/overview',
-      'developer/mqtt/topic',
-      'developer/mqtt/data-points',
-    ],
-  },
-  'developer/integrations/home-assistant',
+  ...developerSectionsSidebar,
 ] satisfies SidebarsConfig[string];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)

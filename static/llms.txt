@@ -1,0 +1,36 @@
+# INDEVOLT 开发者文档中心
+
+> INDEVOLT 中文开发者文档索引，包含开发教程、AI 辅助开发指令以及 HTTP、Modbus、MQTT 和 Home Assistant 参考资料。
+
+请根据任务选择对应页面。开发步骤优先读取“开发教程”，AI 协作流程读取“AI 辅助开发”，接口字段与通信约束以“接口与参考”中的页面为准。
+
+## 开发教程
+
+- [使用 OpenData 构建 macOS 本地设备面板](https://indevolt-y.github.io/zh/docs/developer/guides/macos-local-app)：使用 Python、Flet 和 OpenData HTTP 构建设备面板的完整教程。
+
+## AI 辅助开发
+
+- [使用 AI 开发 INDEVOLT 软件](https://indevolt-y.github.io/zh/docs/developer/guides/ai-assisted-development-best-practices)：面向用户的 AI 协作开发说明。
+- [INDEVOLT 软件开发专家指令](https://indevolt-y.github.io/zh/docs/developer/guides/ai-assisted-development/expert-instructions)：供 AI 使用的软件开发任务指令。
+
+## 接口与参考
+
+### HTTP
+
+- [HTTP 概述](https://indevolt-y.github.io/zh/docs/developer/http)：OpenData HTTP、HTTP Digest 和 HTTPS 的通信说明。
+- [HTTP API 参考](https://indevolt-y.github.io/zh/docs/developer/http-api)：HTTP API、请求参数、响应和数据点参考。
+
+### Modbus
+
+- [Modbus 概述](https://indevolt-y.github.io/zh/docs/developer/modbus)：Modbus TCP 与 RTU 的接入说明。
+- [Modbus 寄存器说明](https://indevolt-y.github.io/zh/docs/developer/modbus-register-table)：寄存器地址、类型、单位和读写属性参考。
+
+### MQTT
+
+- [MQTT 概述](https://indevolt-y.github.io/zh/docs/developer/mqtt)：MQTT 接入与连接配置说明。
+- [MQTT Topic](https://indevolt-y.github.io/zh/docs/developer/mqtt-topic)：状态、控制和应答 Topic 参考。
+- [MQTT 数据点](https://indevolt-y.github.io/zh/docs/developer/mqtt-data-points)：MQTT 上报数据点定义。
+
+### Home Assistant
+
+- [Home Assistant](https://indevolt-y.github.io/zh/docs/developer/home-assistant)：INDEVOLT 设备接入 Home Assistant 的说明。

@@ -1,6 +1,6 @@
 ---
 title: INDEVOLT AI 软件开发指南
-id: guide
+id: using-ai
 description: 面向用户说明如何与 AI 协作完成 INDEVOLT 软件开发任务、确认实施范围并验收交付
 sidebar_label: AI 软件开发指南
 slug: /developer/guides/ai-assisted-development-best-practices
@@ -52,7 +52,7 @@ slug: /developer/guides/ai-assisted-development-best-practices
 
 ### 已完成 Home Assistant 接入，要做仪表盘
 
-只有当你已经按照 [INDEVOLT Home Assistant 接入说明](../../integrations/home-assistant.md) 完成设备接入，并且目标 Home Assistant 中已经能看到设备实体时，才可以使用这个模板：
+只有当你已经按照 [INDEVOLT Home Assistant 接入说明](../integrations/home-assistant.md) 完成设备接入，并且目标 Home Assistant 中已经能看到设备实体时，才可以使用这个模板：
 
 > 我确认已经按照 INDEVOLT 官方说明完成设备接入。目标 Home Assistant 是【实例】。请基于其中已有实体制作一套【使用场景】仪表盘，让我能够【希望看清或完成的结果】。成功标准是【标准】。请先只读检查现有设备、实体和仪表盘，主动给出完整方案并生成预览；【只交付产物，暂不应用 / 预览通过后再申请应用】。
 
