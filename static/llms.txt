@@ -11,8 +11,9 @@
 
 ## AI 辅助开发
 
-- [使用 AI 开发 INDEVOLT 软件](https://indevolt-y.github.io/zh/docs/developer/guides/ai-assisted-development-best-practices)：面向用户的 AI 协作开发说明。
+- [手把手教你用AI做一个INDEVOLT APP](https://indevolt-y.github.io/zh/docs/developer/guides/ai-assisted-development-best-practices)：面向非开发者的 AI 协作开发教程。
 - [INDEVOLT 软件开发专家指令](https://indevolt-y.github.io/zh/docs/developer/guides/ai-assisted-development/expert-instructions)：供 AI 使用的软件开发任务指令。
+- [INDEVOLT 软件开发专家指令（Markdown）](https://indevolt-y.github.io/downloads/indevolt-software-development-expert-instructions.md)：可直接下载并上传给 AI 的专家指令文件。
 
 ## 接口与参考
 
