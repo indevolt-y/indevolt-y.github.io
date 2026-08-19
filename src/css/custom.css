@@ -191,7 +191,12 @@ article .markdown img {
     margin: 0 auto;
 }
 
-article .markdown p:has(> img[alt^="AI 教程示意图："]) {
+article .markdown p:has(
+    > img:is(
+        [alt^="AI 教程示意图："],
+        [alt^="AI tutorial diagram:"]
+    )
+) {
     border-radius: 12px;
     margin: 1.5rem 0 0.6rem;
     overflow-x: auto;
@@ -199,7 +204,10 @@ article .markdown p:has(> img[alt^="AI 教程示意图："]) {
     -webkit-overflow-scrolling: touch;
 }
 
-article .markdown img[alt^="AI 教程示意图："] {
+article .markdown img:is(
+    [alt^="AI 教程示意图："],
+    [alt^="AI tutorial diagram:"]
+) {
     display: block;
     height: auto;
     margin: 0;
@@ -207,7 +215,10 @@ article .markdown img[alt^="AI 教程示意图："] {
 }
 
 @media (max-width: 996px) {
-    article .markdown img[alt^="AI 教程示意图："] {
+    article .markdown img:is(
+        [alt^="AI 教程示意图："],
+        [alt^="AI tutorial diagram:"]
+    ) {
         min-width: 56rem;
     }
 }

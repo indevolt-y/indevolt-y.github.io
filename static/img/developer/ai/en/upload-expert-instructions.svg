@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Upload the INDEVOLT Software Development Expert Instructions to AI</title>
+  <desc id="desc">Download the Markdown file, upload it as an attachment in a new AI conversation, then send the App request from the tutorial.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#17213b" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L9,4 Z" fill="#3768e5"/>
+    </marker>
+    <style>
+      .heading { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #171a22; }
+      .section { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #242b3a; }
+      .copy { font: 400 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #65708a; }
+      .file-name { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #263047; text-anchor: middle; }
+      .chat { font: 500 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #2c3446; }
+      .small { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7590; }
+      .badge { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="560" rx="30" fill="#f6f8fc"/>
+  <text class="heading" x="48" y="58">Put the expert instructions and your request in one AI conversation</text>
+
+  <g transform="translate(64 102)" filter="url(#shadow)">
+    <rect width="350" height="350" rx="24" fill="#ffffff"/>
+    <text class="section" x="28" y="42">Downloaded file</text>
+    <g transform="translate(112 76)">
+      <path d="M0 0 H90 L126 36 V154 H0 Z" fill="#edf3ff" stroke="#afc4f7" stroke-width="2"/>
+      <path d="M90 0 V36 H126" fill="#d9e5ff" stroke="#afc4f7" stroke-width="2"/>
+      <rect x="24" y="69" width="78" height="38" rx="8" fill="#3768e5"/>
+      <text x="63" y="95" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="700" fill="#ffffff">.md</text>
+    </g>
+    <text class="file-name" x="175" y="270">INDEVOLT Software</text>
+    <text class="file-name" x="175" y="296">Expert Instructions.md</text>
+    <text class="copy" x="175" y="330" text-anchor="middle">You do not need to open or edit it</text>
+  </g>
+
+  <path d="M444 276 H552" fill="none" stroke="#3768e5" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <text class="section" x="498" y="245" text-anchor="middle">Drop it here</text>
+
+  <g transform="translate(580 102)" filter="url(#shadow)">
+    <rect width="556" height="398" rx="24" fill="#ffffff"/>
+    <rect width="556" height="58" rx="24" fill="#202633"/>
+    <rect y="34" width="556" height="24" fill="#202633"/>
+    <circle cx="28" cy="29" r="6" fill="#ff6b6b"/>
+    <circle cx="48" cy="29" r="6" fill="#ffd166"/>
+    <circle cx="68" cy="29" r="6" fill="#56d48f"/>
+    <text x="278" y="36" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#ffffff">New AI task</text>
+
+    <rect x="24" y="82" width="508" height="56" rx="12" fill="#edf3ff"/>
+    <rect x="40" y="96" width="30" height="28" rx="5" fill="#3768e5"/>
+    <text x="55" y="116" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" fill="#ffffff">MD</text>
+    <text class="chat" x="82" y="116">INDEVOLT-Expert-Instructions.md</text>
+    <circle cx="508" cy="110" r="12" fill="#27a36a"/>
+    <path d="M502 110 L507 115 L515 105" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="92" y="166" width="440" height="118" rx="18" fill="#f3f5f8"/>
+    <text class="chat" x="112" y="198">Please read the attached expert instructions</text>
+    <text class="chat" x="112" y="226">in full. Do not write code yet. I want</text>
+    <text class="chat" x="112" y="254">a local App for an INDEVOLT device...</text>
+
+    <rect x="24" y="310" width="426" height="58" rx="16" fill="#eef9f3"/>
+    <circle cx="52" cy="339" r="16" fill="#27a36a"/>
+    <path d="M45 339 L50 344 L59 333" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="small" x="80" y="335">AI has read the attachment and is checking the documentation</text>
+    <text class="small" x="80" y="356">Next: provide a plan and an Implementation Confirmation Sheet</text>
+    <circle cx="506" cy="339" r="24" fill="#3768e5"/>
+    <path d="M494 339 H516 M508 331 L516 339 L508 347" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(64 492)">
+    <circle cx="14" cy="14" r="14" fill="#3768e5"/><text class="badge" x="14" y="19">1</text>
+    <text class="copy" x="38" y="19">Download</text>
+    <path d="M138 14 H196" stroke="#bac4d6" stroke-width="2"/>
+    <circle cx="222" cy="14" r="14" fill="#3768e5"/><text class="badge" x="222" y="19">2</text>
+    <text class="copy" x="246" y="19">Upload attachment</text>
+    <path d="M378 14 H436" stroke="#bac4d6" stroke-width="2"/>
+    <circle cx="462" cy="14" r="14" fill="#3768e5"/><text class="badge" x="462" y="19">3</text>
+    <text class="copy" x="486" y="19">Send the App request</text>
+  </g>
+</svg>

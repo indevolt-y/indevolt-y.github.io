@@ -25,6 +25,11 @@ const developerPaths = [
   "/docs/developer/guides/opendata-local-device-panel",
 ];
 
+const bilingualDeveloperPaths = new Set([
+  "/docs/developer/guides/build-indevolt-app-with-ai",
+  "/docs/developer/guides/ai-assisted-development/expert-instructions",
+]);
+
 function getDeveloperPath(pathname: string): string | undefined {
   return developerPaths.find(
     (path) => pathname === path || pathname.endsWith(path),
@@ -43,8 +48,14 @@ export default function LocaleDropdownNavbarItem({
   } = useDocusaurusContext();
   const { pathname, search, hash } = useLocation();
   const developerPath = getDeveloperPath(pathname);
+  const isBilingualDeveloperPath =
+    developerPath !== undefined && bilingualDeveloperPaths.has(developerPath);
+  const usesDeveloperLocaleRouting =
+    developerPath !== undefined &&
+    (currentLocale === "zh" ||
+      (currentLocale === "en" && isBilingualDeveloperPath));
 
-  if (currentLocale !== "zh" || !developerPath) {
+  if (!usesDeveloperLocaleRouting) {
     return (
       <OriginalLocaleDropdownNavbarItem
         {...props}
@@ -61,7 +72,9 @@ export default function LocaleDropdownNavbarItem({
     const targetPath =
       locale === currentLocale
         ? pathname
-        : `${localePrefix}/`;
+        : isBilingualDeveloperPath && (locale === "zh" || locale === "en")
+          ? `${localePrefix}${developerPath}`
+          : `${localePrefix}/`;
 
     return {
       label: localeConfigs[locale]!.label,

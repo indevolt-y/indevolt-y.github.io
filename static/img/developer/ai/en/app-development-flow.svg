@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Five steps to build an INDEVOLT App with AI</title>
+  <desc id="desc">Download the expert instructions, upload them to AI, describe your goal, approve the plan, then run the App and inspect its logs.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1d2a4a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 Z" fill="#91a0bd"/>
+    </marker>
+    <style>
+      .heading { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #171a22; }
+      .subheading { font: 400 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #65708a; }
+      .step-title { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #202532; text-anchor: middle; }
+      .step-copy { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #65708a; text-anchor: middle; }
+      .number { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; text-anchor: middle; }
+      .icon { fill: none; stroke: #3768e5; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="430" rx="30" fill="#f6f8fc"/>
+  <text class="heading" x="48" y="54">From an idea to a local INDEVOLT App</text>
+  <text class="subheading" x="48" y="84">Follow these five steps; no programming background is required</text>
+
+  <g stroke="#91a0bd" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M236 242 H270"/>
+    <path d="M466 242 H500"/>
+    <path d="M696 242 H730"/>
+    <path d="M926 242 H960"/>
+  </g>
+
+  <g transform="translate(48 120)" filter="url(#shadow)">
+    <rect width="188" height="252" rx="22" fill="#ffffff"/>
+    <circle cx="94" cy="67" r="36" fill="#edf3ff"/>
+    <path class="icon" d="M94 42 V78 M80 65 L94 79 L108 65 M77 91 H111"/>
+    <text class="step-title" x="94" y="132">Get instructions</text>
+    <text class="step-copy" x="94" y="164">Get a Markdown file</text>
+    <text class="step-copy" x="94" y="186">ready to upload</text>
+    <circle cx="94" cy="222" r="15" fill="#3768e5"/>
+    <text class="number" x="94" y="227">1</text>
+  </g>
+
+  <g transform="translate(278 120)" filter="url(#shadow)">
+    <rect width="188" height="252" rx="22" fill="#ffffff"/>
+    <circle cx="94" cy="67" r="36" fill="#edf3ff"/>
+    <path class="icon" d="M70 82 H118 V49 H99 L92 41 H70 Z M94 83 V60 M83 70 L94 59 L105 70"/>
+    <text class="step-title" x="94" y="132">Upload to AI</text>
+    <text class="step-copy" x="94" y="164">Add it to a new</text>
+    <text class="step-copy" x="94" y="186">AI conversation</text>
+    <circle cx="94" cy="222" r="15" fill="#3768e5"/>
+    <text class="number" x="94" y="227">2</text>
+  </g>
+
+  <g transform="translate(508 120)" filter="url(#shadow)">
+    <rect width="188" height="252" rx="22" fill="#ffffff"/>
+    <circle cx="94" cy="67" r="36" fill="#edf3ff"/>
+    <path class="icon" d="M68 47 H120 V82 H92 L78 94 V82 H68 Z M79 59 H108 M79 70 H101"/>
+    <text class="step-title" x="94" y="132">Describe your goal</text>
+    <text class="step-copy" x="94" y="164">Add your goal and</text>
+    <text class="step-copy" x="94" y="186">your device details</text>
+    <circle cx="94" cy="222" r="15" fill="#3768e5"/>
+    <text class="number" x="94" y="227">3</text>
+  </g>
+
+  <g transform="translate(738 120)" filter="url(#shadow)">
+    <rect width="188" height="252" rx="22" fill="#ffffff"/>
+    <circle cx="94" cy="67" r="36" fill="#eef9f3"/>
+    <path d="M72 68 L87 83 L116 49" fill="none" stroke="#27a36a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="step-title" x="94" y="132">Approve the plan</text>
+    <text class="step-copy" x="94" y="164">Review, then reply</text>
+    <text class="step-copy" x="94" y="186">"Confirm implementation"</text>
+    <circle cx="94" cy="222" r="15" fill="#27a36a"/>
+    <text class="number" x="94" y="227">4</text>
+  </g>
+
+  <g transform="translate(968 120)" filter="url(#shadow)">
+    <rect width="184" height="252" rx="22" fill="#ffffff"/>
+    <circle cx="92" cy="67" r="36" fill="#fff5e8"/>
+    <rect x="66" y="47" width="52" height="36" rx="5" fill="none" stroke="#e58c28" stroke-width="3"/>
+    <path d="M75 58 L83 65 L75 72 M90 72 H106" fill="none" stroke="#e58c28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="step-title" x="92" y="132">Run the App</text>
+    <text class="step-copy" x="92" y="164">Connect; if it fails,</text>
+    <text class="step-copy" x="92" y="186">send the log to AI</text>
+    <circle cx="92" cy="222" r="15" fill="#e58c28"/>
+    <text class="number" x="92" y="227">5</text>
+  </g>
+</svg>

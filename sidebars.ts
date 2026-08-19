@@ -3,6 +3,9 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const isChineseLocale =
   process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh';
 
+const isEnglishLocale =
+  process.env.DOCUSAURUS_CURRENT_LOCALE === 'en';
+
 const developerSectionsSidebar = [
   {
     type: 'category',
@@ -85,6 +88,26 @@ const developerSectionsSidebar = [
 const developerSidebar = [
   'developer/overview/introduction',
   ...developerSectionsSidebar,
+] satisfies SidebarsConfig[string];
+
+const englishDeveloperSidebar = [
+  {
+    type: 'category',
+    collapsed: false,
+    label: 'AI-assisted development',
+    items: [
+      {
+        type: 'doc',
+        id: 'developer/ai/build-indevolt-app-with-ai',
+        label: 'Build an INDEVOLT App with AI',
+      },
+      {
+        type: 'doc',
+        id: 'developer/ai/expert-instructions',
+        label: 'Software Development Expert Instructions',
+      },
+    ],
+  },
 ] satisfies SidebarsConfig[string];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -184,7 +207,11 @@ const sidebars: SidebarsConfig = {
     'hardware/glossary',
     'hardware/firmware',
   ],
-  ...(isChineseLocale ? {developerSidebar} : {}),
+  ...(isChineseLocale
+    ? {developerSidebar}
+    : isEnglishLocale
+      ? {developerSidebar: englishDeveloperSidebar}
+      : {}),
   appSidebar: [
     'app/introduction',
     'app/release-notes',
