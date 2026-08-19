@@ -1,6 +1,7 @@
 ---
 title: MQTT 概述
 description: 介绍如何通过 MQTT 查看和控制微储设备。
+slug: /developer/mqtt
 ---
 
 # MQTT 概述

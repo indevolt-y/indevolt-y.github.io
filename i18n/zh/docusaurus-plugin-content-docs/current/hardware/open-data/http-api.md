@@ -1,6 +1,7 @@
 ---
 title: API 参考
 description: todo
+slug: /developer/http-api
 ---
 
 # API 参考

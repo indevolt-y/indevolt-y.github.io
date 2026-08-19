@@ -1,6 +1,7 @@
 ---
 title: Modbus 概述
 description: 了解如何通过 Modbus TCP 或 Modbus RTU 与微储设备通信，实现本地数据读取与控制。
+slug: /developer/modbus
 ---
 
 # Modbus 概述

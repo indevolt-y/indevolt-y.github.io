@@ -1,5 +1,47 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
+const isChineseLocale =
+  process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh';
+
+const developerSidebar = [
+  'hardware/open-data/introduction',
+  {
+    type: 'category',
+    label: 'HTTP/HTTPS',
+    items: [
+      'hardware/open-data/http',
+      'hardware/open-data/http-api',
+    ],
+  },
+  {
+    type: 'category',
+    label: 'Modbus',
+    items: [
+      'hardware/open-data/modbus',
+      'hardware/open-data/modbus-register-table',
+    ],
+  },
+  {
+    type: 'category',
+    label: 'MQTT',
+    items: [
+      'hardware/open-data/mqtt',
+      'hardware/open-data/mqtt-topic',
+      'hardware/open-data/mqtt-data-points',
+    ],
+  },
+  'hardware/open-data/home-assistant',
+] satisfies SidebarsConfig[string];
+
+const openDataSidebar = [
+  {
+    type: 'category',
+    collapsed: false,
+    label: 'OpenData',
+    items: developerSidebar,
+  },
+] satisfies SidebarsConfig[string];
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /**
@@ -84,40 +126,7 @@ const sidebars: SidebarsConfig = {
         'hardware/technical-note/rcd',
       ],
     },
-    {
-      type: 'category',
-      collapsed: false,
-      label: 'OpenData',
-      items: [
-        'hardware/open-data/introduction',
-        {
-          type: 'category',
-          label: 'HTTP/HTTPS',
-          items: [
-            'hardware/open-data/http',
-            'hardware/open-data/http-api',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Modbus',
-          items: [
-            'hardware/open-data/modbus',
-            'hardware/open-data/modbus-register-table',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'MQTT',
-          items: [
-            'hardware/open-data/mqtt',
-            'hardware/open-data/mqtt-topic',
-            'hardware/open-data/mqtt-data-points',
-          ],
-        },
-        'hardware/open-data/home-assistant',
-      ],
-    },
+    ...(isChineseLocale ? [] : openDataSidebar),
     {
       type: 'category',
       label: 'Technical Specification',
@@ -132,6 +141,7 @@ const sidebars: SidebarsConfig = {
     'hardware/firmware',
     'hardware/doc-version'
   ],
+  ...(isChineseLocale ? {developerSidebar} : {}),
   appSidebar: [
     'app/introduction',
     'app/release-notes',

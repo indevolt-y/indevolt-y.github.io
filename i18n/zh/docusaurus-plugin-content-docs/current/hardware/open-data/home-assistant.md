@@ -1,6 +1,7 @@
 ---
 title: Home Assistant 集成
 description: 将 INDEVOLT 储能系统接入 Home Assistant，实现本地监控与自动化控制。
+slug: /developer/home-assistant
 toc_max_heading_level: 2
 ---
 
@@ -248,4 +249,3 @@ config directory/
 | 集成未出现在搜索列表 | 检查文件夹路径：`custom_components`/`indevolt`                             |
 | 无法连接设备         | 1. 确认IP正确。<br />2. 检查设备网络状态。                                 |
 | 实体无数据           | ​​1. 检查设备电源。<br />2. 检查设备网络状态。<br />3. 查看日志错误信息。 |
-

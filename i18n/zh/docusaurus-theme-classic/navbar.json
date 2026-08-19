@@ -14,5 +14,9 @@
   "item.label.Micro Storage": {
     "message": "微型储能",
     "description": "Navbar item with label Micro Storage"
+  },
+  "item.label.Developer Center": {
+    "message": "开发者文档中心",
+    "description": "Navbar item with label Developer Center"
   }
 }

@@ -1,6 +1,7 @@
 ---
 title: 寄存器说明
 description: INDEVOLT 微储 Modbus 寄存器结构与映射说明
+slug: /developer/modbus-register-table
 ---
 
 # 寄存器说明
@@ -483,5 +484,4 @@ description: INDEVOLT 微储 Modbus 寄存器结构与映射说明
 | 1143            | GridChargeEnable    |       | enum16 | 1            |       | RW             | AC Output | Settings       | Before V1.4    | Grid Charging Enable (0 = Disable, 1 = Enable)                                                                                                |
 |                 | RELAY_FAIL          | 24    |        |              |       |                | Inverter  | Event          | Before V1.4    | Relay Fail                                                                                                                                    |
 |                 | EPS_OVER_LOAD       | 25    |        |              |       |                | Inverter  | Event          | Before V1.4    | EPS (Bypass) Overload                                                                                                                          |
-
 

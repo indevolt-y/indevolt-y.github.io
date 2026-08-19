@@ -1,6 +1,7 @@
 ---
 title: HTTP/HTTPS 概述
 description: 通过标准 HTTP 接口访问本地设备数据并控制 INDEVOLT 微型储能系统。
+slug: /developer/http
 ---
 
 # # HTTP/HTTPS 概述

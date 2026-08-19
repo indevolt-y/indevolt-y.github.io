@@ -1,6 +1,7 @@
 ---
 title: 介绍
 description: INDEVOLT 设备本地与云端数据通信框架说明
+slug: /developer
 ---
 
 # OpenData 介绍

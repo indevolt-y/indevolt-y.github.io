@@ -5,6 +5,14 @@ import stripDocumentImages from "./plugins/strip-document-images";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const isChineseLocale =
+  process.env.DOCUSAURUS_CURRENT_LOCALE === "zh";
+
+const developerCenterLink = {
+  label: "Developer Center",
+  to: "docs/developer",
+};
+
 const config: Config = {
   title: "INDEVOLT Developer Docs",
   tagline:
@@ -110,6 +118,7 @@ const config: Config = {
               label: "INDEVOLT App",
               to: "docs/app/introduction"
             },
+            ...(isChineseLocale ? [developerCenterLink] : []),
           ]
         },
         {
@@ -137,7 +146,8 @@ const config: Config = {
             {
               label: "INDEVOLT App",
               to: "docs/app/introduction"
-            }
+            },
+            ...(isChineseLocale ? [developerCenterLink] : []),
             
           ]
         },

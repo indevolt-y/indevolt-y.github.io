@@ -1,6 +1,7 @@
 ---
 title: MQTT Topic
 description: INDEVOLT MQTT Topic 结构及消息格式说明。
+slug: /developer/mqtt-topic
 ---
 
 # MQTT Topic
@@ -196,4 +197,3 @@ mosquitto_sub -h 127.0.0.1 -t "/test/subtopic/control_ack" -v
 | ----------------- | ------ | --------------- |
 | `result`          | String | 命令执行结果    |
 | `commandResponse` | String | Modbus 返回数据 |
-
