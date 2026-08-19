@@ -115,8 +115,13 @@ body {
         "Microsoft YaHei";
 }
 
-.navbar__item {
-    display: inline-flex;
+/* Keep the horizontal navbar layout on desktop only. Docusaurus moves these
+ * items into the sidebar below 997px, so a global display override would make
+ * the desktop links overflow on phones. */
+@media (min-width: 997px) {
+    .navbar__item {
+        display: inline-flex;
+    }
 }
 
 .navbar__link {
@@ -246,6 +251,7 @@ article p > span > a {
 
 .navbar-sidebar__items {
     height: calc(100% - var(--ifm-navbar-height));
+    overflow-x: hidden;
 }
 
 /* Documentation sidebar hierarchy */
@@ -341,11 +347,22 @@ html[data-theme="dark"]
 
     .navbar__toggle {
         display: inline-block;
+        flex-shrink: 0;
     }
 
-    /* .navbar__item {
+    .navbar__item {
         display: none;
-    } */
+    }
+
+    .navbar__brand {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .navbar-sidebar .menu__link {
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
 
     .navbar__search-input {
         width: 9rem;
