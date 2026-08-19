@@ -6,7 +6,7 @@
 
 ## 开发教程
 
-- [使用 OpenData 构建本地设备面板](https://indevolt-y.github.io/zh/docs/developer/guides/opendata-local-device-panel)：使用 Python、Flet 和 OpenData HTTP 构建设备面板的完整教程。
+- [使用 OpenData HTTP API 构建设备面板](https://indevolt-y.github.io/zh/docs/developer/guides/opendata-local-device-panel)：通过设备状态读取和灯带控制，学习 OpenData HTTP API 的请求格式、点位与调用规则。
 
 ## AI 辅助开发
 

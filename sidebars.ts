@@ -12,7 +12,7 @@ const developerSectionsSidebar = [
       {
         type: 'doc',
         id: 'developer/tutorials/opendata-local-device-panel',
-        label: '使用 OpenData 构建本地设备面板',
+        label: 'OpenData HTTP API 实战',
       },
     ],
   },
