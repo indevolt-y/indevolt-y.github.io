@@ -8,6 +8,11 @@ import stripDocumentImages from "./plugins/strip-document-images";
 const isChineseLocale =
   process.env.DOCUSAURUS_CURRENT_LOCALE === "zh";
 
+const isEnglishLocale =
+  process.env.DOCUSAURUS_CURRENT_LOCALE === "en";
+
+const showsDeveloperCenter = isChineseLocale || isEnglishLocale;
+
 const developerCenterLink = {
   label: "Developer Center",
   to: "docs/developer",
@@ -168,7 +173,7 @@ const config: Config = {
           to: "docs/app/introduction",
           position: "left",
         },
-        ...(isChineseLocale
+        ...(showsDeveloperCenter
           ? [{ ...developerCenterLink, position: "left" as const }]
           : []),
         {
@@ -201,7 +206,7 @@ const config: Config = {
               label: "INDEVOLT App",
               to: "docs/app/introduction"
             },
-            ...(isChineseLocale ? [developerCenterLink] : []),
+            ...(showsDeveloperCenter ? [developerCenterLink] : []),
             documentVersionLink,
           ]
         },

@@ -91,6 +91,7 @@ const developerSidebar = [
 ] satisfies SidebarsConfig[string];
 
 const englishDeveloperSidebar = [
+  'developer/overview/introduction',
   {
     type: 'category',
     collapsed: false,

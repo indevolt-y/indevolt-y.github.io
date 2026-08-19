@@ -1,57 +1,33 @@
 ---
-title: Introduction
+title: Developer Center
 id: introduction
-description: Overview of the INDEVOLT device local and cloud data communication framework
-draft: true
+description: Guides and AI-ready instructions for building software that works with INDEVOLT devices
+sidebar_label: Developer Center
+slug: /developer
 ---
 
-# OpenData Overview
+# INDEVOLT Developer Center
 
-OpenData is an open data communication framework designed for INDEVOLT micro energy storage devices. It allows users to connect micro storage systems to custom-developed Apps or energy management systems to view device data, monitor status, and perform remote control.
+Use these guides to plan and build software that works with INDEVOLT devices.
 
-Without relying on the INDEVOLT Server, users can still access micro storage device functions directly through local interfaces even without an Internet connection, ensuring flexible operation in different application scenarios.
+## AI-assisted development
 
-With OpenData, you can:
+### Build an INDEVOLT App with AI, step by step
 
-- 📡 **View real-time device data**: such as state of charge (SOC), power, voltage, temperature, and operating status
-- 🎛️ **Remotely control devices**: such as setting charging/discharging modes, adjusting power, and controlling operating strategies
-- 🔗 **Integrate with third-party systems**: such as Home Assistant or cloud platforms
+Follow a guided workflow to describe your goal, review the implementation plan, let an AI coding tool build the App, and use the request log to resolve problems.
 
-## Supported Communication Methods
+[Open the step-by-step tutorial](../ai/build-indevolt-app-with-ai.md)
 
-OpenData supports multiple common industrial and IoT protocols to meet different application scenarios:
+### INDEVOLT Software Development Expert Instructions
 
-- [**HTTP / HTTP Digest / HTTPS**](../http/overview.md)
-  - Suitable for API calls from cloud platforms and applications
-  - Supports on-demand device data queries
+Give these instructions to an AI so it can identify the development route, prepare confirmation sheets, respect device-write authorization, validate the result, and provide a complete delivery report.
 
-- [**Modbus TCP / RTU**](../modbus/overview.md)
-  - Suitable for local systems and energy management systems (HEMS)
-  - Reads or writes device data through registers
+[Read the expert instructions](../ai/expert-instructions.md)
 
-- [**MQTT**](../mqtt/overview.md)
-  - Suitable for real-time data publishing and IoT scenarios
-  - Enables efficient data synchronization based on the publish/subscribe model
+<a className="button button--primary" href="/downloads/indevolt-software-development-expert-instructions-en.md" download="INDEVOLT-Software-Development-Expert-Instructions.md">Download the expert instructions for AI</a>
 
-## Device Connection Methods
+## Choose where to start
 
-Devices can connect to the network through the following methods:
-
-- Wi-Fi
-- Ethernet
-- RS485 (for Modbus RTU, not supported yet)
-
-After the device is successfully connected to the network, it can exchange data and receive control commands from external systems through OpenData.
-
-## Working Principle
-
-The basic concept is that the device is responsible for generating and uploading data, while external systems are responsible for reading data or sending control commands.
-
-```text
-INDEVOLT Device
-   ↓
-OpenData Communication Layer
-   ↓
-HTTP / MQTT / Modbus
-   ↓
-External System (App / Cloud Platform / HEMS)
+- To build your first App, open the step-by-step tutorial.
+- To give an AI the complete INDEVOLT development rules, download the expert instructions.
+- To inspect the instructions before using them, open the web version.

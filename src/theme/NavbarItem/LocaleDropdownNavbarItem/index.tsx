@@ -26,6 +26,7 @@ const developerPaths = [
 ];
 
 const bilingualDeveloperPaths = new Set([
+  "/docs/developer",
   "/docs/developer/guides/build-indevolt-app-with-ai",
   "/docs/developer/guides/ai-assisted-development/expert-instructions",
 ]);
